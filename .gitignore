@@ -1,0 +1,20 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.toc
+*.fls
+*.fdb_latexmk
+*.run.xml
+*.synctex.gz
+
+# Built PDFs (regenerate with `make`); archived PDFs are tracked explicitly below
+/design.pdf
+/grant_proposal.pdf
+
+# Editor / OS cruft
+.DS_Store
+*~
+.vscode/

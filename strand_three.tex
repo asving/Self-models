@@ -1,0 +1,118 @@
+% =====================================================================
+% Strand Three: epistemic actions and introspective access.
+% Regime 6: the model may query lumped quotients (epimorphic images)
+% of the World HMM. The analysis separates genuine introspective
+% access to the model's own belief state from first-order competence
+% that merely uses it.
+% =====================================================================
+
+\subsection*{Epistemic actions: queryable quotients and introspective access}
+
+The regimes above vary \emph{who} acts; this strand varies \emph{what acting is
+for}. Following the classical distinction of \citep{kirsh1994epistemic}, the
+SWITCH actions of Regimes 2--5 are simultaneously \emph{pragmatic} (they
+transition the World state) and \emph{epistemic} (the response is informative
+about it). Regime 6 adds a channel that is purely epistemic: it yields
+information about $w$ without disturbing it.
+
+\paragraph{Setup (Regime 6).} Fix a family of epimorphisms
+$\varphi_i : W \to W^{(i)}$ onto smaller HMMs, chosen so that each quotient is a
+lumpable coarse-graining of the World chain \citep{kemeny1960finite}. At
+designated positions the model may emit a query token $q_i$; the environment
+answers with the current coarse state $y = \varphi_i(w_t)$, leaving $w_t$
+untouched. Queries are budgeted (a fixed number per trajectory, or a small
+reward cost), so the model must choose \emph{which} quotient to consult. The
+cleanest instantiation factors the World outright, $W \cong A \times B$, with
+the $\varphi_i$ the two projections: the model holding belief $b_W$ must decide
+whether it is more ignorant about the $A$ factor or the $B$ factor. The
+intuition motivating the regime is that spending the budget well requires the
+model to \emph{know what it knows}: a metacognitive judgement about its own
+belief state, made before any new evidence arrives.
+
+\paragraph{The deflationary observation.} We state at the outset the objection
+that this intuition does not survive unmodified, because the objection shapes
+the entire analysis plan. For an ideal Bayes-adaptive agent the expected
+information gain of query $i$ is the entropy of the pushforward of its current
+belief, $\mathrm{EIG}_i = H(\varphi_{i\,\sharp}\, b_W)$: the answer is a
+deterministic function of $w$, so the mutual information $I(w;\varphi_i(w))$
+reduces to the entropy of the coarse marginal. The optimal query policy
+$\arg\max_i H(\varphi_{i\,\sharp}\, b_W)$ is therefore a functional of the
+first-order belief --- one more readout of $b_W$, requiring no representation
+\emph{of} the belief over and above the belief itself. Optimal query behaviour
+alone is thus compatible with a pure world model. This is precisely the
+deflationary critique long aimed at animal and infant metacognition: opt-out
+and help-seeking paradigms \citep{hampton2001monkeys,goupil2016infants} admit
+first-order reconstructions in which an uncertainty signal is \emph{used}
+without being \emph{represented} \citep{carruthers2008skeptical}, and
+behavioural evidence alone has not resolved that dispute. The toy setting
+cannot evade the equivalence at the behavioural level --- but it can break it
+at the mechanistic level, in two ways.
+
+\paragraph{Escape one: dissociation under miscalibration.} The behavioural
+equivalence holds only for the ideal agent, for whom ``my uncertainty'' is a
+deterministic function of the observable history. A finite trained model's
+realised belief $\hat b_W$ --- the object our probes decode --- deviates from
+the analytic posterior $b_W$ somewhere: off the training distribution, on long
+or ambiguous histories, at capacity limits. There the hypotheses come apart.
+\emph{Introspective access} predicts queries that track the model's own
+miscalibration, $\arg\max_i H(\varphi_{i\,\sharp}\, \hat b_W)$: the model asks
+about what \emph{it} is uncertain of, even where an ideal observer would not
+be. A \emph{compiled heuristic} --- a query policy fit to the typical
+uncertainty profile of surface history features --- instead approximates the
+ideal policy on-distribution and tracks neither posterior where they diverge.
+Because both $b_W$ (analytically) and $\hat b_W$ (by the belief-geometry
+probes) are available to us, we can locate histories on which they disagree and
+classify every query the model makes. Knowing-what-you-know, on this
+operationalisation, is not being right about the world; it is being right about
+one's own errors.
+
+\paragraph{Escape two: causal introspection.} The sharper test is
+interventional and reuses machinery this proposal already builds. Once the
+World-belief subspace is identified, we edit $\hat b_W$ in the residual stream
+--- writing in a belief with a different marginal-entropy profile --- and ask
+whether the query distribution shifts as the edited belief predicts. A positive
+result establishes a causal pathway from the belief representation to the query
+choice: the metacognitive act \emph{reads} the model's own internal state
+rather than recomputing a shortcut from the history. This is the toy-model
+analogue of concept-injection tests of introspection in language models, and
+connects directly to the on-policy-detection findings in our forthcoming work
+with Lindsey. We note the regress this stops: one can always redescribe
+``reading one's own belief state'' as more first-order computation, but at that
+point the deflation has no further content --- a circuit that consumes the
+belief representation \emph{as} a representation, tracks its idiosyncratic
+errors, and is causally load-bearing for behaviour is everything introspective
+access could be in any physical system.
+
+\paragraph{The epistemic self and its geometry.} If the introspective readout
+exists, Regime 6 adds a third notion of self to the two already in play
+(token-type and actor-identity): an \emph{epistemic self}, a represented
+quantity whose content is a property of the model's own belief state rather
+than of the World. In the factored instantiation the predicted object is
+concrete: scalar readouts of the marginal entropies $H(b_A)$ and $H(b_B)$,
+linearly available upstream of the query decision. These quantities sit on the
+Self side of the Markov blanket while being \emph{about} the World --- the
+first genuinely second-order representation the SWITCH demands, and the
+self-directed counterpart of the other-directed belief fibers of the previous
+strand. This symmetry raises a sharp circuit-level question, parallel to the
+privileged-self-pathway question raised there: does the self-uncertainty
+readout route through the same machinery that (with stateful actors) represents
+\emph{other} agents' beliefs, or through a privileged direct pathway? The
+former is the mechanistic form of the thesis that metacognition is self-directed
+mindreading \citep{carruthers2009mindreading}; the SWITCH with both stateful
+actors and queryable quotients makes that long-standing question empirical.
+
+\paragraph{Design notes.} (i) Query timing is curriculum-staged: fixed query
+slots first, so the model chooses only \emph{which} quotient to consult, with
+learned timing and explicit query costs as a second phase. This keeps the
+regime free of the cold-start problem that makes open-ended reasoning training
+expensive. (ii) The quotient family should be designed so that the identity of
+the most informative quotient varies across histories (the product projections
+already guarantee this, as uncertainty migrates between factors); otherwise a
+static preference over oracles is optimal and the regime tests nothing.
+(iii) The regime reuses the Regime 2b training infrastructure, and its analytic
+comparators --- filtered posterior, pushforward entropies, value of information
+--- are cheap to compute. (iv) A natural extension, deferred on cost grounds,
+replaces the external oracle with free-form internal rollouts in which the
+model generates both halves of a simulated exchange (the chain-of-thought
+analogue); the quotient-oracle version isolates the metacognitive question
+without first having to train reasoning from scratch.

@@ -1,0 +1,100 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[round, authoryear]{natbib}
+\usepackage{hyperref}
+\usepackage[margin=2.5cm]{geometry}
+
+\title{Developmental Motivation}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Developmental Motivation}
+
+Both halves of the central hypothesis have well-studied analogues in human and prenatal
+development, which we take as motivation for our hypotheses.
+
+For the first half --- the emergence of internal belief representations under optimisation
+pressure --- a large developmental literature documents that infants and young children
+behave in ways that are broadly consistent with several candidate optimisation objectives.
+Children preferentially seek evidence at an intermediate level of surprise \citep[the
+Goldilocks effect;][]{kidd2012goldilocks}, select informative causal interventions over
+uninformative ones \citep{lapidow2020informative}, track learning progress
+\citep{poli2020infants}, and adapt their search strategies to the ecological structure of
+the learning environment \citep{ruggeri2022ecological}. Predictive processing accounts
+recast many of these observations within a unified framework in which action selection is
+guided by expected free energy, expressed in terms of anticipated prediction error
+\citep{clark2013whatever, friston2016active}, which infants have also been found to
+minimise \citep{zhang2019prediction}.
+
+What this body of work cannot resolve, however, is the nature of the internal
+representations underlying these behaviours. Infants behave as if they are minimising
+surprise or maximising information gain, but the optimisation objectives themselves --- and
+the internal states that implement them --- are not directly accessible. The behavioural
+signatures are consistent with many different internal architectures, and manipulating the
+objective directly is not possible in a living organism.
+
+For the second half of the hypothesis --- the self/world distinction --- there also exist
+strong developmental corollaries. Within hours of birth, infants alter their sucking rhythm
+to produce preferred sounds, demonstrating rapid learning of an action--outcome contingency
+\citep{decasper2009lateralized}. Newborns will raise an arm into a light beam and attend to
+the resulting hand shadow, an early case of acting to produce a sensory consequence
+\citep{vandermeer1997limelight}. By three months, infants kick more vigorously when their
+ankle is tethered to a mobile that responds to their movement than under yoked
+non-contingent control \citep{rovee1969conjugate}, and generalise the same
+contingency-learning principle across modalities and effectors \citep{lee2013contingent}.
+The mechanism proposed across these studies is temporal contingency detection: the infant
+learns to identify its own actions by their reliable, short-latency coupling to reafferent
+feedback, distinguishing self-caused from world-caused signal by the temporal structure of
+the action--outcome link. This is precisely the causal-sampling property we use as the
+signature of self in our toy model and LLM analyses --- a self-emitted token is recognisable
+as self-produced by being a sample from one's own prior output distribution, in the same
+way that an infant's movement is recognisable as self-produced by its temporal coupling to
+the motor intention that preceded it. However, like with the developmental evidence
+presented in support of our first hypothesis, this evidence does also not directly address
+the link between optimisation function to explore well and the emergence of causal internal
+representations.
+
+Our own recent work (see attached) offers what might be read as circumstantial evidence
+that optimisation pressure on exploration may itself drive the emergence of causal internal
+representations. In utero, as soon as foetal movement begins, we observe a rapid and
+systematic increase in the structure of exploratory motor output: early vermicular movements
+(around 7.5 weeks GA; \citealt{prechtl1985ultrasound}) give way to increasingly
+fractionated, spatially selective limb and joint movements (such as general movements,
+startles, and brief myoclonic limb twitches; \citealt{devries1982emergence,
+piontelli2010conclusions, tiriac2014selfgenerated, lindemann2016spindle}) by 20 weeks
+\citep{devries1982emergence}, consistent with a shift from coarse, metabolically cheap
+sampling toward targeted, high-signal-to-noise exploration of the body's own sensorimotor
+space. Crucially, this increase in structured exploration is contemporaneous with the
+earliest evidence of a primitive self-model: by approximately 22 weeks GA foetal hand
+trajectories toward the mouth follow more direct paths than trajectories toward the eyes,
+which decelerate earlier \citep{zoia2007evidence}. This body-specific calibration implies a
+mapping from motor commands to their expected sensory consequences on a self-structured
+target space. The co-emergence of more structured exploration alongside a primitive causal
+model of the body is exactly the pattern our hypothesis predicts, but it is a correlational
+observation in a system whose internal computations are opaque. Whether the structure of
+exploration itself drove the formation of the self-model, or whether both reflect a common
+maturational programme, cannot be determined from developmental data alone.
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+Taken together, these observations motivate both halves of our hypothesis and suggest that
+the co-development of structured exploration and a causal self-model may be a general
+feature of learning systems operating under joint optimisation pressure on exploration and
+belief update. At the same time, they underscore what developmental research alone cannot
+provide: direct access to the optimisation objectives, the ability to vary the training
+regime while holding everything else fixed, and causal interventions on the representations
+themselves. We see our proposed work as both inspired by and contributing to this
+developmental picture --- by investigating, in a system where the ground truth is computable
+and the training objective is under experimental control, whether the pressures that
+developmental research can only observe from the outside are sufficient to produce the
+internal factorisations it predicts.
+
+\bibliographystyle{plainnat}
+\bibliography{devmotivation}
+
+\end{document}
