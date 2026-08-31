@@ -1,0 +1,162 @@
+{
+  "args": {
+    "ckpt": "runs/uni_mess3_asym3",
+    "out": "runs/expA_plain",
+    "corrupt_frac": 1.0,
+    "L": 64,
+    "steps": 6000,
+    "batch": 256,
+    "lr": 0.0003,
+    "eval_every": 300,
+    "seed": 0
+  },
+  "log": [
+    {
+      "step": 1,
+      "loss": 2.282100200653076,
+      "asym3_nll_corrupt": 1.1620689630508423,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 300,
+      "loss": 1.9153350591659546,
+      "asym3_nll_corrupt": 0.8222054839134216,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 600,
+      "loss": 1.9294109344482422,
+      "asym3_nll_corrupt": 0.8246294856071472,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 900,
+      "loss": 1.906348466873169,
+      "asym3_nll_corrupt": 0.8214198350906372,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 1200,
+      "loss": 1.9203927516937256,
+      "asym3_nll_corrupt": 0.8198392391204834,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 1500,
+      "loss": 1.9176380634307861,
+      "asym3_nll_corrupt": 0.819356381893158,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 1800,
+      "loss": 1.9054919481277466,
+      "asym3_nll_corrupt": 0.8215837478637695,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 2100,
+      "loss": 1.911263108253479,
+      "asym3_nll_corrupt": 0.825751006603241,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 2400,
+      "loss": 1.8993427753448486,
+      "asym3_nll_corrupt": 0.8198962807655334,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 2700,
+      "loss": 1.926230549812317,
+      "asym3_nll_corrupt": 0.8292065262794495,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 3000,
+      "loss": 1.9199477434158325,
+      "asym3_nll_corrupt": 0.8269359469413757,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 3300,
+      "loss": 1.9214441776275635,
+      "asym3_nll_corrupt": 0.8293102383613586,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 3600,
+      "loss": 1.9125760793685913,
+      "asym3_nll_corrupt": 0.820859968662262,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 3900,
+      "loss": 1.8932430744171143,
+      "asym3_nll_corrupt": 0.8207470774650574,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 4200,
+      "loss": 1.8960076570510864,
+      "asym3_nll_corrupt": 0.8327982425689697,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 4500,
+      "loss": 1.9172189235687256,
+      "asym3_nll_corrupt": 0.8153132200241089,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 4800,
+      "loss": 1.9102624654769897,
+      "asym3_nll_corrupt": 0.8256454467773438,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 5100,
+      "loss": 1.9145421981811523,
+      "asym3_nll_corrupt": 0.8286957144737244,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 5400,
+      "loss": 1.8960241079330444,
+      "asym3_nll_corrupt": 0.8229779005050659,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 5700,
+      "loss": 1.9237086772918701,
+      "asym3_nll_corrupt": 0.83095782995224,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    },
+    {
+      "step": 6000,
+      "loss": 1.9298012256622314,
+      "asym3_nll_corrupt": 0.8285528421401978,
+      "asym3_nll_clean": NaN,
+      "action_entropy": 1.098601101601322
+    }
+  ]
+}

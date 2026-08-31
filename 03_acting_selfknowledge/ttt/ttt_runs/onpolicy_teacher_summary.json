@@ -1,0 +1,25 @@
+{
+  "tag": "onpolicy_teacher",
+  "fullobs": false,
+  "collapse": {
+    "opening_entropy": 2.1971988677978516,
+    "opening_maxprob": 0.11243798583745956,
+    "tie_entropy": 1.6853210004440637,
+    "tie_maxprob": 0.26117078660828336,
+    "tie_acc": 0.9432594740111825,
+    "forced_acc": 0.7753267973856209,
+    "move_acc": 0.8933857427087882,
+    "n_tie": 14487,
+    "n_opening": 5000
+  },
+  "vs_random": {
+    "win": 0.8115,
+    "draw": 0.091,
+    "loss": 0.0975
+  },
+  "vs_optimal": {
+    "win": 0.0,
+    "draw": 1.0,
+    "loss": 0.0
+  }
+}

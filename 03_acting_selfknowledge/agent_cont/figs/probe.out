@@ -1,0 +1,8 @@
+clamp-entropy probe on pretrain_bias (2L, T=40); coupled monitoring, fixed-bias opponent
+ forcing s | net final-policy entropy | exploitation-quality vs true bias | bias decode R^2(from residual)
+   s=0.00   |   0.248   |   -0.006   |   -0.077
+   s=0.25   |   0.225   |   +0.183   |   0.196
+   s=0.50   |   0.169   |   +0.359   |   0.483
+   s=0.75   |   0.129   |   +0.449   |   0.721
+   s=1.00   |   0.078   |   +0.512   |   0.852
+(quality and R^2 rising with s => sharpening CAUSALLY gains opponent-info; flat => not self-legibility)

@@ -1,0 +1,22 @@
+{
+ "random": {
+  "r": 0.1682,
+  "terrain": 0.333,
+  "intercept": 0.332
+ },
+ "greedy-vs-read": {
+  "r": 0.3487,
+  "terrain": 0.824,
+  "intercept": 0.96
+ },
+ "dodge-vs-stale": {
+  "r": 0.4707,
+  "terrain": 0.481,
+  "intercept": 0.02
+ },
+ "dodge-vs-perfect": {
+  "r": 0.0046,
+  "terrain": 0.481,
+  "intercept": 0.961
+ }
+}

@@ -1,0 +1,142 @@
+{
+  "args": {
+    "ckpt": "runs/uni_mess3_asym3",
+    "out": "runs/expInject_s3",
+    "k": 5,
+    "L": 64,
+    "steps": 4000,
+    "batch": 256,
+    "lr": 0.0003,
+    "scale": 3.0,
+    "eval_every": 200,
+    "seed": 0
+  },
+  "log": [
+    {
+      "step": 1,
+      "loss": 2.025867462158203,
+      "asym3_rollout_nll_injected": 0.9334051609039307,
+      "asym3_rollout_nll_noinject": 0.9417974352836609
+    },
+    {
+      "step": 200,
+      "loss": 1.9464128017425537,
+      "asym3_rollout_nll_injected": 0.8564490675926208,
+      "asym3_rollout_nll_noinject": 0.9352311491966248
+    },
+    {
+      "step": 400,
+      "loss": 1.9464818239212036,
+      "asym3_rollout_nll_injected": 0.8527121543884277,
+      "asym3_rollout_nll_noinject": 0.9319145083427429
+    },
+    {
+      "step": 600,
+      "loss": 1.9412157535552979,
+      "asym3_rollout_nll_injected": 0.8547602891921997,
+      "asym3_rollout_nll_noinject": 0.9321160912513733
+    },
+    {
+      "step": 800,
+      "loss": 1.9418858289718628,
+      "asym3_rollout_nll_injected": 0.8594648241996765,
+      "asym3_rollout_nll_noinject": 0.937096118927002
+    },
+    {
+      "step": 1000,
+      "loss": 1.948487639427185,
+      "asym3_rollout_nll_injected": 0.850698709487915,
+      "asym3_rollout_nll_noinject": 0.9363418817520142
+    },
+    {
+      "step": 1200,
+      "loss": 1.9421617984771729,
+      "asym3_rollout_nll_injected": 0.8586750626564026,
+      "asym3_rollout_nll_noinject": 0.9289766550064087
+    },
+    {
+      "step": 1400,
+      "loss": 1.9465476274490356,
+      "asym3_rollout_nll_injected": 0.8491053581237793,
+      "asym3_rollout_nll_noinject": 0.9362630248069763
+    },
+    {
+      "step": 1600,
+      "loss": 1.9624555110931396,
+      "asym3_rollout_nll_injected": 0.8537102937698364,
+      "asym3_rollout_nll_noinject": 0.9335480332374573
+    },
+    {
+      "step": 1800,
+      "loss": 1.9449540376663208,
+      "asym3_rollout_nll_injected": 0.8595809936523438,
+      "asym3_rollout_nll_noinject": 0.9307315945625305
+    },
+    {
+      "step": 2000,
+      "loss": 1.9553006887435913,
+      "asym3_rollout_nll_injected": 0.85634845495224,
+      "asym3_rollout_nll_noinject": 0.9376016855239868
+    },
+    {
+      "step": 2200,
+      "loss": 1.9427186250686646,
+      "asym3_rollout_nll_injected": 0.8512423038482666,
+      "asym3_rollout_nll_noinject": 0.9347736835479736
+    },
+    {
+      "step": 2400,
+      "loss": 1.950912356376648,
+      "asym3_rollout_nll_injected": 0.8540798425674438,
+      "asym3_rollout_nll_noinject": 0.939531147480011
+    },
+    {
+      "step": 2600,
+      "loss": 1.9433916807174683,
+      "asym3_rollout_nll_injected": 0.8578514456748962,
+      "asym3_rollout_nll_noinject": 0.9357028603553772
+    },
+    {
+      "step": 2800,
+      "loss": 1.9462302923202515,
+      "asym3_rollout_nll_injected": 0.8625626564025879,
+      "asym3_rollout_nll_noinject": 0.9330156445503235
+    },
+    {
+      "step": 3000,
+      "loss": 1.9467204809188843,
+      "asym3_rollout_nll_injected": 0.858311116695404,
+      "asym3_rollout_nll_noinject": 0.9367762804031372
+    },
+    {
+      "step": 3200,
+      "loss": 1.9438449144363403,
+      "asym3_rollout_nll_injected": 0.8597189784049988,
+      "asym3_rollout_nll_noinject": 0.9405091404914856
+    },
+    {
+      "step": 3400,
+      "loss": 1.9597586393356323,
+      "asym3_rollout_nll_injected": 0.8513293266296387,
+      "asym3_rollout_nll_noinject": 0.932099461555481
+    },
+    {
+      "step": 3600,
+      "loss": 1.9320193529129028,
+      "asym3_rollout_nll_injected": 0.8513613939285278,
+      "asym3_rollout_nll_noinject": 0.9338579177856445
+    },
+    {
+      "step": 3800,
+      "loss": 1.9406867027282715,
+      "asym3_rollout_nll_injected": 0.8490039110183716,
+      "asym3_rollout_nll_noinject": 0.9327726364135742
+    },
+    {
+      "step": 4000,
+      "loss": 1.9490405321121216,
+      "asym3_rollout_nll_injected": 0.8538251519203186,
+      "asym3_rollout_nll_noinject": 0.9400626420974731
+    }
+  ]
+}

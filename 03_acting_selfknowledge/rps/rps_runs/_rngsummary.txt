@@ -1,0 +1,8 @@
+=== RNG experiment: H_cond (given coin; predict COLLAPSE everywhere) vs H_marg (opponent-visible) ===
+  (no-RNG baseline single entropy: beta=0->0.07, 0.2->0.15, 0.3->0.47, 0.34+->1.10)
+beta=0.0: H_cond=0.056  H_marg=0.057  payoff=+0.454
+beta=0.2: H_cond=0.223  H_marg=0.233  payoff=+0.129
+beta=0.3: H_cond=0.513  H_marg=0.586  payoff=+0.021
+beta=0.5: H_cond=0.844  H_marg=1.098  payoff=+0.002
+beta=0.8: H_cond=0.729  H_marg=1.098  payoff=-0.002
+beta=1.0: H_cond=0.782  H_marg=1.098  payoff=-0.015

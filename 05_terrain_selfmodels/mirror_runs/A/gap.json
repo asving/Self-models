@@ -1,0 +1,22 @@
+{
+ "random": {
+  "r": 0.1669,
+  "terrain": 0.333,
+  "intercept": 0.334
+ },
+ "greedy": {
+  "r": 0.401,
+  "terrain": 0.824,
+  "intercept": 0.854
+ },
+ "rotate": {
+  "r": 0.2225,
+  "terrain": 0.333,
+  "intercept": 0.223
+ },
+ "dodger": {
+  "r": 0.4959,
+  "terrain": 0.764,
+  "intercept": 0.54
+ }
+}

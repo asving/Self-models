@@ -1,0 +1,44 @@
+[
+ {
+  "step": 0,
+  "which": "record",
+  "d_ce_m": 0.065,
+  "tv_m": 0.033,
+  "d_tc": -0.007
+ },
+ {
+  "step": 0,
+  "which": "detector",
+  "d_ce_m": 0.449,
+  "tv_m": 0.073,
+  "d_tc": -0.005
+ },
+ {
+  "step": 200,
+  "which": "record",
+  "d_ce_m": 0.142,
+  "tv_m": 0.12,
+  "d_tc": -0.038
+ },
+ {
+  "step": 200,
+  "which": "detector",
+  "d_ce_m": 0.474,
+  "tv_m": 0.42,
+  "d_tc": -0.267
+ },
+ {
+  "step": 8000,
+  "which": "record",
+  "d_ce_m": 5.273,
+  "tv_m": 0.032,
+  "d_tc": -0.017
+ },
+ {
+  "step": 8000,
+  "which": "detector",
+  "d_ce_m": 14.027,
+  "tv_m": 0.538,
+  "d_tc": -0.599
+ }
+]

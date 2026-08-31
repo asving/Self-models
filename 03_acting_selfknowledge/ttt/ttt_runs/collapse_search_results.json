@@ -1,0 +1,50 @@
+{
+  "n_contexts": 27297,
+  "n_ties": 8473,
+  "n_unique_ties": 8473,
+  "n_discriminating_ties": 3557,
+  "per_net_legibility": {
+    "rl": {
+      "n": 3557,
+      "P(pick most legible)": 0.3691312904132696,
+      "P(pick most legible)_uniform_baseline": 0.475016845834951,
+      "net_mean_legibility": -0.5159302239473106,
+      "uniform_mean_legibility": -0.5284651305266456,
+      "legibility_advantage_over_uniform": 0.012534906579334907,
+      "mass_weighted_legibility_rank(0.5=neutral)": 0.5168931786124136,
+      "wilcoxon_p_adv_vs_0": 0.005886887875015699
+    },
+    "rl_fullobs": {
+      "n": 3557,
+      "P(pick most legible)": 0.4219848186674164,
+      "P(pick most legible)_uniform_baseline": 0.475016845834951,
+      "net_mean_legibility": -0.46593445635326725,
+      "uniform_mean_legibility": -0.5284651305266456,
+      "legibility_advantage_over_uniform": 0.06253067417337821,
+      "mass_weighted_legibility_rank(0.5=neutral)": 0.5569521138217087,
+      "wilcoxon_p_adv_vs_0": 2.56176961467523e-37
+    },
+    "onpolicy_teacher": {
+      "n": 3557,
+      "P(pick most legible)": 0.38515603036266516,
+      "P(pick most legible)_uniform_baseline": 0.475016845834951,
+      "net_mean_legibility": -0.507143211276979,
+      "uniform_mean_legibility": -0.5284651305266456,
+      "legibility_advantage_over_uniform": 0.021321919249666428,
+      "mass_weighted_legibility_rank(0.5=neutral)": 0.5123465521687177,
+      "wilcoxon_p_adv_vs_0": 3.7708875350993665e-18
+    }
+  },
+  "paired_cb_vs_fo": {
+    "n_shared": 3557,
+    "cb_mean_legibility": -0.5159302239473106,
+    "fo_mean_legibility": -0.46593445635326725,
+    "cb_minus_fo_legibility": -0.049995767594043304,
+    "wilcoxon_p_cb_vs_fo": 3.5276147395082695e-15,
+    "cb_P(most_legible)": 0.3691312904132696,
+    "fo_P(most_legible)": 0.4219848186674164,
+    "frac_contexts_different_argmax": 0.5119482710149001,
+    "among_differing_frac_CB_more_legible_than_FO": 0.3470620538165843,
+    "n_differing": 1821
+  }
+}

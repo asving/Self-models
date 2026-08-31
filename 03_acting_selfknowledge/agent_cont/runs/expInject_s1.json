@@ -1,0 +1,142 @@
+{
+  "args": {
+    "ckpt": "runs/uni_mess3_asym3",
+    "out": "runs/expInject_s1",
+    "k": 5,
+    "L": 64,
+    "steps": 4000,
+    "batch": 256,
+    "lr": 0.0003,
+    "scale": 1.0,
+    "eval_every": 200,
+    "seed": 0
+  },
+  "log": [
+    {
+      "step": 1,
+      "loss": 2.019559144973755,
+      "asym3_rollout_nll_injected": 0.931311845779419,
+      "asym3_rollout_nll_noinject": 0.9413245916366577
+    },
+    {
+      "step": 200,
+      "loss": 1.946117877960205,
+      "asym3_rollout_nll_injected": 0.8559594750404358,
+      "asym3_rollout_nll_noinject": 0.9346040487289429
+    },
+    {
+      "step": 400,
+      "loss": 1.945538878440857,
+      "asym3_rollout_nll_injected": 0.8527346849441528,
+      "asym3_rollout_nll_noinject": 0.9314637780189514
+    },
+    {
+      "step": 600,
+      "loss": 1.9413057565689087,
+      "asym3_rollout_nll_injected": 0.8545924425125122,
+      "asym3_rollout_nll_noinject": 0.9307845830917358
+    },
+    {
+      "step": 800,
+      "loss": 1.9416531324386597,
+      "asym3_rollout_nll_injected": 0.8591863512992859,
+      "asym3_rollout_nll_noinject": 0.9356240034103394
+    },
+    {
+      "step": 1000,
+      "loss": 1.9480693340301514,
+      "asym3_rollout_nll_injected": 0.8507323265075684,
+      "asym3_rollout_nll_noinject": 0.9342108964920044
+    },
+    {
+      "step": 1200,
+      "loss": 1.9424467086791992,
+      "asym3_rollout_nll_injected": 0.8586351871490479,
+      "asym3_rollout_nll_noinject": 0.9257766008377075
+    },
+    {
+      "step": 1400,
+      "loss": 1.946421504020691,
+      "asym3_rollout_nll_injected": 0.8489672541618347,
+      "asym3_rollout_nll_noinject": 0.9331622123718262
+    },
+    {
+      "step": 1600,
+      "loss": 1.9623037576675415,
+      "asym3_rollout_nll_injected": 0.8536972403526306,
+      "asym3_rollout_nll_noinject": 0.9319032430648804
+    },
+    {
+      "step": 1800,
+      "loss": 1.944732427597046,
+      "asym3_rollout_nll_injected": 0.8595015406608582,
+      "asym3_rollout_nll_noinject": 0.9288906455039978
+    },
+    {
+      "step": 2000,
+      "loss": 1.9547431468963623,
+      "asym3_rollout_nll_injected": 0.8563755750656128,
+      "asym3_rollout_nll_noinject": 0.9343786835670471
+    },
+    {
+      "step": 2200,
+      "loss": 1.9430478811264038,
+      "asym3_rollout_nll_injected": 0.8511823415756226,
+      "asym3_rollout_nll_noinject": 0.932104766368866
+    },
+    {
+      "step": 2400,
+      "loss": 1.9507805109024048,
+      "asym3_rollout_nll_injected": 0.85411137342453,
+      "asym3_rollout_nll_noinject": 0.9360790252685547
+    },
+    {
+      "step": 2600,
+      "loss": 1.9427372217178345,
+      "asym3_rollout_nll_injected": 0.8576829433441162,
+      "asym3_rollout_nll_noinject": 0.9333289265632629
+    },
+    {
+      "step": 2800,
+      "loss": 1.946270227432251,
+      "asym3_rollout_nll_injected": 0.8624527454376221,
+      "asym3_rollout_nll_noinject": 0.9307869076728821
+    },
+    {
+      "step": 3000,
+      "loss": 1.9465758800506592,
+      "asym3_rollout_nll_injected": 0.8583143949508667,
+      "asym3_rollout_nll_noinject": 0.9340288639068604
+    },
+    {
+      "step": 3200,
+      "loss": 1.9438806772232056,
+      "asym3_rollout_nll_injected": 0.8596157431602478,
+      "asym3_rollout_nll_noinject": 0.9370653033256531
+    },
+    {
+      "step": 3400,
+      "loss": 1.9598231315612793,
+      "asym3_rollout_nll_injected": 0.8511409163475037,
+      "asym3_rollout_nll_noinject": 0.9298533201217651
+    },
+    {
+      "step": 3600,
+      "loss": 1.9320605993270874,
+      "asym3_rollout_nll_injected": 0.8513588309288025,
+      "asym3_rollout_nll_noinject": 0.9304127097129822
+    },
+    {
+      "step": 3800,
+      "loss": 1.940157413482666,
+      "asym3_rollout_nll_injected": 0.8489493727684021,
+      "asym3_rollout_nll_noinject": 0.9294723868370056
+    },
+    {
+      "step": 4000,
+      "loss": 1.9485979080200195,
+      "asym3_rollout_nll_injected": 0.8537142872810364,
+      "asym3_rollout_nll_noinject": 0.9346461892127991
+    }
+  ]
+}

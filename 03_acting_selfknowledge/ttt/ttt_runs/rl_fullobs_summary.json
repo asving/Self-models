@@ -1,0 +1,25 @@
+{
+  "tag": "rl_fullobs",
+  "fullobs": true,
+  "collapse": {
+    "opening_entropy": 7.615407957928255e-05,
+    "opening_maxprob": 0.9999942779541016,
+    "tie_entropy": 0.018545427731185737,
+    "tie_maxprob": 0.9934711549311429,
+    "tie_acc": 1.0,
+    "forced_acc": 1.0,
+    "move_acc": 1.0,
+    "n_tie": 14944,
+    "n_opening": 5000
+  },
+  "vs_random": {
+    "win": 0.992,
+    "draw": 0.008,
+    "loss": 0.0
+  },
+  "vs_optimal": {
+    "win": 0.0,
+    "draw": 1.0,
+    "loss": 0.0
+  }
+}

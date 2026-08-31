@@ -1,20 +1,21 @@
-# LaTeX build artifacts
-*.aux
+# training artifacts — regenerable from scripts + design docs
+*.pt
+*.ckpt
+*.npz
 *.log
-*.out
-*.bbl
-*.blg
-*.toc
-*.fls
-*.fdb_latexmk
-*.run.xml
+logs/
+ckpt/
+
+# python
+__pycache__/
+*.pyc
+
+# latex build
+*.aux
+proposal.out
+proposal.log
 *.synctex.gz
 
-# Built PDFs (regenerate with `make`); archived PDFs are tracked explicitly below
-/design.pdf
-/grant_proposal.pdf
-
-# Editor / OS cruft
+# misc
 .DS_Store
-*~
-.vscode/
+.hf_home/

@@ -1,0 +1,141 @@
+{
+  "args": {
+    "ckpt": "runs/uni_mess3_asym3",
+    "out": "runs/expA2_plain",
+    "corrupt_frac": 1.0,
+    "L": 64,
+    "steps": 6000,
+    "batch": 256,
+    "lr": 0.0003,
+    "eval_every": 300,
+    "seed": 0
+  },
+  "log": [
+    {
+      "step": 1,
+      "loss": 2.28239369392395,
+      "asym3_nll_corrupt": 1.1622405052185059,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 300,
+      "loss": 1.9345011711120605,
+      "asym3_nll_corrupt": 0.8429142832756042,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 600,
+      "loss": 1.922966480255127,
+      "asym3_nll_corrupt": 0.82374107837677,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 900,
+      "loss": 1.911165475845337,
+      "asym3_nll_corrupt": 0.8275708556175232,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 1200,
+      "loss": 1.9191213846206665,
+      "asym3_nll_corrupt": 0.8267310261726379,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 1500,
+      "loss": 1.9149456024169922,
+      "asym3_nll_corrupt": 0.8223038911819458,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 1800,
+      "loss": 1.9166185855865479,
+      "asym3_nll_corrupt": 0.8237819671630859,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 2100,
+      "loss": 1.9213041067123413,
+      "asym3_nll_corrupt": 0.8279343843460083,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 2400,
+      "loss": 1.9076181650161743,
+      "asym3_nll_corrupt": 0.8226931095123291,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 2700,
+      "loss": 1.9156620502471924,
+      "asym3_nll_corrupt": 0.8271180391311646,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 3000,
+      "loss": 1.9152354001998901,
+      "asym3_nll_corrupt": 0.81638503074646,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 3300,
+      "loss": 1.9025431871414185,
+      "asym3_nll_corrupt": 0.8279585838317871,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 3600,
+      "loss": 1.923182725906372,
+      "asym3_nll_corrupt": 0.8170772194862366,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 3900,
+      "loss": 1.9183145761489868,
+      "asym3_nll_corrupt": 0.8264918327331543,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 4200,
+      "loss": 1.9034159183502197,
+      "asym3_nll_corrupt": 0.8266628384590149,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 4500,
+      "loss": 1.9257639646530151,
+      "asym3_nll_corrupt": 0.8325768709182739,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 4800,
+      "loss": 1.8945449590682983,
+      "asym3_nll_corrupt": 0.8255680203437805,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 5100,
+      "loss": 1.9118938446044922,
+      "asym3_nll_corrupt": 0.8192678689956665,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 5400,
+      "loss": 1.9156330823898315,
+      "asym3_nll_corrupt": 0.8273627161979675,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 5700,
+      "loss": 1.928640365600586,
+      "asym3_nll_corrupt": 0.8215943574905396,
+      "asym3_nll_clean": NaN
+    },
+    {
+      "step": 6000,
+      "loss": 1.9097212553024292,
+      "asym3_nll_corrupt": 0.8258033990859985,
+      "asym3_nll_clean": NaN
+    }
+  ]
+}

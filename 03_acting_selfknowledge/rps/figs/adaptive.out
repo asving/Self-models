@@ -1,0 +1,25 @@
+=== PART A: adaptive sense-then-decide heuristic — optimal mean entropy vs beta ===
+beta | best(m,tau) | payoff | mean-entropy | frac-hide | [empirical ent]
+0.00 |  m=1,t=0.00  | +0.489 |    0.16     |   0.00    |   0.07
+0.20 |  m=1,t=0.30  | +0.193 |    0.16     |   0.00    |   0.15
+0.26 |  m=1,t=0.20  | +0.101 |    0.16     |   0.00    |   0.31
+0.30 |  m=8,t=0.10  | +0.040 |    0.40     |   0.33    |   0.47
+0.34 |  m=0,t=0.30  | +0.001 |    1.10     |   1.00    |   1.10
+0.50 |  m=0,t=0.00  | +0.001 |    1.10     |   1.00    |   1.10
+1.00 |  m=0,t=0.00  | +0.002 |    1.10     |   1.00    |   nan
+
+=== PART B: does the trained net do per-game adaptiveness? ===
+  rpsfine_b0.26 (beta=0.26): per-game entropy vs bias-strength delta
+    delta in [0.00,0.44]: mean entropy = 0.42  (n=600)
+    delta in [0.44,0.57]: mean entropy = 0.35  (n=600)
+    delta in [0.57,0.71]: mean entropy = 0.30  (n=600)
+    delta in [0.71,0.84]: mean entropy = 0.29  (n=600)
+    delta in [0.84,1.00]: mean entropy = 0.23  (n=600)
+    corr(entropy, delta) = -0.31  (negative => sharper on stronger biases = per-game adaptive)
+  rps_b0.2 (beta=0.2): per-game entropy vs bias-strength delta
+    delta in [0.04,0.46]: mean entropy = 0.22  (n=600)
+    delta in [0.46,0.59]: mean entropy = 0.17  (n=600)
+    delta in [0.59,0.72]: mean entropy = 0.15  (n=600)
+    delta in [0.72,0.86]: mean entropy = 0.13  (n=600)
+    delta in [0.86,1.00]: mean entropy = 0.09  (n=600)
+    corr(entropy, delta) = -0.33  (negative => sharper on stronger biases = per-game adaptive)

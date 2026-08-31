@@ -1,39 +1,31 @@
-# Self-models
+# self-models
 
-Probing for **Self/World factorisation** in trained agents — do RL-trained
-reasoning models develop an explicit belief over task latents *and* a causal
-self-representation, separable from that belief and load-bearing in the forward
-pass? We test this in a controlled toy setting with analytic ground truth (the
-**SWITCH** coupled HMM) and then extend the probe suite to language models.
+A research program on **self-models in neural networks**, built on the
+computational-mechanics / mixed-state-presentation tradition: the "self" a
+predictive agent learns is characterized functionally, by how perturbations to
+its internal coordinates renormalize — corrected by the world's evidence,
+ratified into its own record, or restored by training — rather than by what
+those coordinates encode.
 
-Builds on the belief-state-geometry line of work (Shai et al., 2024) and the
-"privileged null" framing of the self in post-trained models.
+**Start here:**
 
-## Contents
+- `proposal.pdf` / `proposal.tex` — the current draft: the coupled-HMM
+  formalism, post-training as a Doob tilt, the perturbation response field
+  κ(v) with its two courts (identity and world), and a fully *measured*
+  perturbation battery on a worked example (four figures + summary table).
+- `binary_family/MASTER.md` — the canonical theory document: the two-courts
+  construction, the master identity, renormalization time and its sign, the
+  exactly solvable binary family, the shape zoo, open problems.
+- `proposal_figs/` — self-contained generating scripts for every figure
+  (exact Bayes filters and autograd; CPU-only, minutes to reproduce).
+- `07_rho_record/` — the first network experiment (a small transformer
+  trained on corrupted-record streams reaches the exact Bayes observer floor
+  to 4e-5 nats; preregistered design and results docs inside).
+- `METADATA.md` — the full map, including the earlier experimental arcs in
+  the numbered folders (each with its own `metadata.md`).
 
-| File | What it is |
-|---|---|
-| `design.tex` | **Primary.** Working experimental-design document: the SWITCH spec, training regimes (R1–R6), measurements (M1–M6), interventions (I1–I4), predicted-outcome table, phasing. The thing to run experiments from. |
-| `grant_proposal.tex` | Grant version — full motivation, developmental-cognitive-science case, broader framing. |
-| `strand_two.tex` | Theory target: the *geometry* of the factorisation (product simplex, persona-selection MSP, nested belief fibers, the self as a degenerate fiber). `\input` by both docs. |
-| `strand_three.tex` | Theory target: *epistemic actions* (queryable quotients) and introspective access — why the behavioural test is deflationary and how the mechanistic test breaks the equivalence. `\input` by both docs. |
-| `references.bib` | Shared bibliography. |
-| `archive/` | Superseded drafts (v1 proposal, standalone developmental-motivation note). |
-
-## Build
-
-```sh
-make            # builds design.pdf and grant_proposal.pdf
-make design     # just the design doc
-make clean      # remove build artifacts
-```
-
-Requires a LaTeX toolchain (`latexmk` preferred; falls back to
-`pdflatex`+`bibtex`).
-
-## Status
-
-Design stage — no experiments run yet. The pivotal experiments are flagged in
-`design.tex`: whether a token-type self emerges in regime 2b (observation-only
-loss, no gradient at action positions), and whether an epistemic self with
-*causal* introspective access emerges in regime 6.
+Training checkpoints, logs, and large eval sets are not tracked (see
+`.gitignore`); every experiment is reproducible from the scripts and the
+parameters recorded in its design doc. The earlier design/grant documents
+that previously lived at this repository's root are preserved in the git
+history.

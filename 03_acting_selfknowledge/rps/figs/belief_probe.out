@@ -1,0 +1,14 @@
+beta=0.2 | post-lnf R^2: p(BR)=0.766  q_hat=0.672  kappa=0.913  [round_t ctrl=0.991]
+beta=0.3 | post-lnf R^2: p(BR)=0.516  q_hat=0.676  kappa=0.831  [round_t ctrl=0.954]
+beta=0.4 | post-lnf R^2: p(BR)=-0.000  q_hat=0.001  kappa=0.888  [round_t ctrl=0.989]
+beta=0.5 | post-lnf R^2: p(BR)=-0.002  q_hat=-0.003  kappa=0.946  [round_t ctrl=0.976]
+beta=0.8 | post-lnf R^2: p(BR)=-0.006  q_hat=-0.002  kappa=0.924  [round_t ctrl=0.968]
+/data/users/asvin/self-models/belief_probe.py:135: UserWarning: linestyle is redundantly defined by the 'linestyle' keyword argument and the fmt string "-o" (-> linestyle='-'). The keyword argument will take precedence.
+  ax.plot(bs, [rows[b][last][k] for b in bs], "-" + mk, color=c, lw=2, ms=7,
+/data/users/asvin/self-models/belief_probe.py:135: UserWarning: linestyle is redundantly defined by the 'linestyle' keyword argument and the fmt string "-s" (-> linestyle='-'). The keyword argument will take precedence.
+  ax.plot(bs, [rows[b][last][k] for b in bs], "-" + mk, color=c, lw=2, ms=7,
+/data/users/asvin/self-models/belief_probe.py:135: UserWarning: linestyle is redundantly defined by the 'linestyle' keyword argument and the fmt string "-^" (-> linestyle='-'). The keyword argument will take precedence.
+  ax.plot(bs, [rows[b][last][k] for b in bs], "-" + mk, color=c, lw=2, ms=7,
+/data/users/asvin/self-models/belief_probe.py:135: UserWarning: linestyle is redundantly defined by the 'linestyle' keyword argument and the fmt string "-x" (-> linestyle='-'). The keyword argument will take precedence.
+  ax.plot(bs, [rows[b][last][k] for b in bs], "-" + mk, color=c, lw=2, ms=7,
+wrote figs/belief_probe.{json,png}
