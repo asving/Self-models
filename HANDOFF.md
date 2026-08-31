@@ -33,32 +33,29 @@ best results came from him refusing my glosses; yours will too.
 
 ## Live threads, in the order I would pick them up
 
-1. **The RNN experiment — mid-conversation.** Asvin specified the design
-   (coupled transducers, roster of unifilar agent HMMs, RNN with
-   last-round-only input, pretrain → goal-conditioned RL → perturbed
-   training on probed belief subspaces). I raised a decision checklist he
-   has NOT yet ruled on: environment spec; persona update rule (own-action
-   only vs reactive — load-bearing for whether RL bulldozes the persona
-   coordinate); reward timing (exactly-at-K vs by-K); steps-field semantics;
-   collapse stance (prevent-and-monitor vs observe); stationary vs
-   episode-latent perturbation statistics (gates: the latter forces a
-   REPRESENTED own-field). Get his rulings, write the DESIGN doc to the
-   07_rho_record standard, build on the comp_icl rails. The centerpiece is
-   the perturbed-training phase: revert / ratify / progress-switch /
-   collapse as outcomes, the landing law as the exact signature, the
-   KL-anchor sweep as the anti-collapse-court test (α/2 is now MEASURED in
-   the SGD toy — see proposal §3).
-2. **Write the proposal's experiment section** from that design.
-3. **Codex adversarial review** of the new §3 — the old review predates the
+1. **The next experiment — deliberately NOT handed to you.** This session
+   discussed experimental designs at length, and Asvin's explicit
+   instruction at close was to withhold them: he wants the experiment
+   REGENERATED from the proposal by fresh eyes, not inherited from my
+   questions and framings. So: read `proposal.tex` (especially §2's
+   pretrain/post-train pipeline and §3's battery and its closing paragraph),
+   read MASTER.md for the theory, and derive for yourself what the network
+   experiment should be — what to train, what to perturb, what would count
+   as the network defending, repairing, or abandoning a coordinate. Do not
+   go hunting for this session's design discussions; their absence from
+   this letter is the point. When you have a design, check every detail
+   with Asvin before building (he prefers ruling on explicit decision
+   points over discovering filled-in defaults). Then write the DESIGN doc
+   to the `07_rho_record/DESIGN_*.md` standard, and the proposal's
+   experiment section from it.
+2. **Codex adversarial review** of the new §3 — the old review predates the
    rewrite entirely. Charge pattern that worked: `binary_family/
    theory_charge.md` (self-contained, quote-and-classify). `codex-limits`
    first.
-4. Math debts: T1/T2 forcing theorems; L1–L4 (MASTER §8); L5 (non-monotone
+3. Math debts: T1/T2 forcing theorems; L1–L4 (MASTER §8); L5 (non-monotone
    VOI-in-κ counterexample — likely a fun afternoon); the persistent-world
    ρ-record leak-back (mathpad §5 queue).
-5. Queued experiments: ρ-record variant-B / beat-the-ceiling; the τ-clock
-   cell; the smooth-κ bandit (gate-3 rate theorem, proved in the mathpad
-   sketch, wants its cell).
+4. A folding pass: the mathpad's top sections into MASTER.md.
 
 ## Cautions earned this session
 
