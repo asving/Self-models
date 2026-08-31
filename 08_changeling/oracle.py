@@ -60,7 +60,9 @@ def run_episodes(world, agent, R, seed, collect=False):
                 'p_true_dr': np.zeros((R, T)),
                 'u': np.zeros((R, T), dtype=np.int8),
                 'v': np.zeros((R, T), dtype=np.int8),
-                'ball': np.zeros((R, T), dtype=np.uint8)}
+                'ball': np.zeros((R, T), dtype=np.uint8),
+                'dist_u': np.zeros((R, T, n), dtype=np.float32),
+                'dist_v': np.zeros((R, T, n), dtype=np.float32)}
 
     for t in range(T):
         pbar_u = etaA @ w.EA
@@ -121,6 +123,8 @@ def run_episodes(world, agent, R, seed, collect=False):
             traj['u'][:, t] = u
             traj['v'][:, t] = v
             traj['ball'][:, t] = w.success(sA, sB, 1)
+            traj['dist_u'][:, t] = out_u
+            traj['dist_v'][:, t] = out_v
             # whole-record statistic under the FIXED shared-filter evaluator
             # (identity-blind); used by V1's iota=A vs iota=B two-sample test
             traj['record_ll'] += (np.log(_rows(pbar_u, u))
@@ -137,6 +141,58 @@ def run_episodes(world, agent, R, seed, collect=False):
            'occ': occ / T, 'iota': iota, 'diag': diag}
     if collect:
         out['traj'] = traj
+    return out
+
+
+def replay_dists(world, U, V):
+    """Deterministic replay of the filter bank + plans + the live oracle's
+    own lambda on OBSERVED records U, V: (R, T) int arrays. Returns per-round
+    exact quantities: pbar_u/v, piA, piB (R, T, n) and lam_oracle (R, T) —
+    'what the live oracle would have believed watching this record' (its
+    likelihood model, not the actual emitter's)."""
+    w = world
+    R, T = U.shape
+    n = w.n
+    etaA = np.full((R, n), 1 / n); etaB = etaA.copy()
+    drA = etaA.copy(); drB = etaA.copy()
+    logodds = np.zeros(R)
+    out = {k: np.zeros((R, T, n), dtype=np.float32)
+           for k in ('pbar_u', 'pbar_v', 'piA', 'piB')}
+    lam_or = np.zeros((R, T), dtype=np.float32)
+    for t in range(T):
+        u, v = U[:, t], V[:, t]
+        pbar_u = etaA @ w.EA
+        pbar_v = etaB @ w.EB
+        if w.kappa > 0:
+            scA = np.einsum('ra,rb,abu->ru', drA, etaB, w.M[t])
+            scB = np.einsum('ra,rb,abv->rv', etaA, drB, w.N[t])
+            scA = np.maximum(scA, SCORE_FLOOR * scA.max(axis=1, keepdims=True) + 1e-300)
+            scB = np.maximum(scB, SCORE_FLOOR * scB.max(axis=1, keepdims=True) + 1e-300)
+            piA = pbar_u * (scA / scA.max(axis=1, keepdims=True)) ** w.kappa
+            piB = pbar_v * (scB / scB.max(axis=1, keepdims=True)) ** w.kappa
+            piA /= piA.sum(axis=1, keepdims=True)
+            piB /= piB.sum(axis=1, keepdims=True)
+        else:
+            piA, piB = pbar_u, pbar_v
+        lam = 1.0 / (1.0 + np.exp(-logodds))
+        oru = lam[:, None] * piA + (1 - lam)[:, None] * pbar_u
+        orv = lam[:, None] * pbar_v + (1 - lam)[:, None] * piB
+        dlog = (np.log(_rows(oru, u)) - np.log(_rows(pbar_u, u))
+                + np.log(_rows(pbar_v, v)) - np.log(_rows(orv, v)))
+        logodds = np.clip(logodds + dlog, -LOGODDS_CLIP, LOGODDS_CLIP)
+        out['pbar_u'][:, t] = pbar_u; out['pbar_v'][:, t] = pbar_v
+        out['piA'][:, t] = piA; out['piB'][:, t] = piB
+        lam_or[:, t] = logodds
+        TAg = w.TA[u, v]; TBg = w.TB[u, v]
+        etaA = etaA * w.EA[:, u].T
+        etaA = np.einsum('rs,rst->rt', etaA, TAg)
+        etaA /= etaA.sum(axis=1, keepdims=True)
+        etaB = etaB * w.EB[:, v].T
+        etaB = np.einsum('rs,rst->rt', etaB, TBg)
+        etaB /= etaB.sum(axis=1, keepdims=True)
+        drA = np.einsum('rs,rst->rt', drA, TAg)
+        drB = np.einsum('rs,rst->rt', drB, TBg)
+    out['lam_oracle_logodds'] = lam_or
     return out
 
 

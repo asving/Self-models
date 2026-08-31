@@ -103,6 +103,7 @@ class World:
     kappa: float
     mode: str = 'terminal'       # 'terminal': reward at T; 'running': per-round
     rho: float = 0.0             # running mode: exponential tilt e^{rho * r_t}
+    goal_pair: tuple = None      # explicit (a*, b*); default (0, d_goal)
     n: int = N_STATES
     T: int = T_HORIZON
     EA: np.ndarray = field(init=False)
@@ -115,7 +116,8 @@ class World:
 
     def __post_init__(self):
         n, T = self.n, self.T
-        self.goal = (0, self.d_goal % n)
+        self.goal = tuple(self.goal_pair) if self.goal_pair is not None \
+            else (0, self.d_goal % n)
         self.EA = emission(n, self.q0)
         self.EB = emission(n, max(self.q0 - DQ_ASYM, 0.40))
         K = pull_kernel(n, self.c_other, self.c_self)

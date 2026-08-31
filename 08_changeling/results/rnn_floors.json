@@ -1,0 +1,7 @@
+{
+ "occ_informed": 0.51061875,
+ "occ_live": 0.424840625,
+ "occ_agnostic": 0.35373125,
+ "occ_informed_rot35": 0.5139453125,
+ "pretrain_ce_floor": 1.0457603923277925
+}
