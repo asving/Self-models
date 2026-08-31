@@ -31,7 +31,18 @@ truth) | oracle.py (4-belief filter bank + mixture policy + lambda) |
 validate.py (V1-V4, all pass) | sweep.py (selection sweeps) | results/
 (validation + 3 sweep JSONs + winner npz) | figs/ | logs/.
 
-Run everything with cwd = this folder, ~/comp_icl/.venv/bin/python. All CPU.
-Next: stage-2 RNN design doc (pretrain on base joint law; post-train with
-iota coin, masked prediction loss, REINFORCE+KL); lambda probes vs this
-oracle; wiggle-bonus and reward-on-belief variants queued.
+Run everything with cwd = this folder, ~/comp_icl/.venv/bin/python. Phase 0
+all CPU; stage 2 (RNN) single GPU, minutes.
+
+Stage 2 DONE (2026-08-31, seed 0, DESIGN_changeling_v1_rnn.md + measured
+outcomes inside): pretrain hits exact filter floor; three-stage curriculum
+(pretrain -> flag-given oracle distillation+DAgger -> flag-hidden
+REINFORCE+KL+forecast-CE) takes closed-loop occupancy .355 -> .687 (above
+the myopic informed oracle .511), and mechanism.py shows genuine
+identification with an EXPONENTIAL policy — "everything is me until proven
+otherwise": per-channel plan coefficient .99 (self) vs .34 (other), the
+other-channel claim decaying 1.0 -> .08 within the episode. v1.0's two
+training pathologies (distillation compounding; advantage normalization
+shrinking effective rho) documented in the doc. Hidden states saved for the
+probe/steering session. Next: hidden-state lambda probe + body-swap
+steering; more seeds; wiggle-bonus; reward-on-belief; correlated-actors.

@@ -140,3 +140,42 @@ Queued after v1: probe/steering session (body-swap test); ≥2 more seeds;
 wiggle-bonus comparison (does the net beat the myopic live oracle?);
 reward-on-belief self-deception variant; correlated-actors lemma-breaking
 variant; devtomo pass over the checkpoint pairs.
+
+---
+
+## Measured outcomes (v1.0 / v1.1, 2026-08-31, seed 0)
+
+**v1.0 (archived, results/rnn_train_log_v1.0.json):** pretrain hit the exact
+filter floor (P1 pass, CE 1.046). Two pathologies, both diagnosed and fixed:
+distillation-only midtrain compounded off-policy (flag-given occupancy .367
+vs informed floor .508 — P2 fail → DAgger relabeling added); std-normalized
+advantages shrank the effective ρ from 8 to ~3, letting the anchor + CE
+erode the tilt — post-training DECREASED occupancy .31→.28, below the
+agnostic floor (→ natural reward units, lr 3e-5, 10% flag-given rehearsal).
+
+**v1.1 (results/rnn_train_log.json, rnn_eval.json, rnn_mechanism.json):**
+- P1 pass (CE at floor 1.046, never below).
+- P2 still short at mid-final: flag-given closed loop .377 vs oracle .511 —
+  but RL then surpasses both, so distillation quality did not bind.
+- P3 pass, beyond expectation: closed-loop occupancy .355 → **.687**,
+  above the informed ORACLE (.511). Not a bug: the oracle's h-table assumes
+  a base-law future (conservative myopic reference); REINFORCE bootstraps
+  its own play. Floors are reference policies, not optimal bounds — noted.
+- P4 pass IN MECHANISM, with an operationalization amendment: the
+  preregistered self-channel legibility correlation read ≈0 — the right
+  statistic is the per-channel plan coefficient (project each head on the
+  exact {plan, p̄} basis). Split by hidden identity at post_6000:
+  **self channel .988, other channel .342**, with the other-channel
+  coefficient decaying 1.0 → .08 over the episode; across post-training the
+  split grows from (.54/.40) to (.99/.34) in lockstep with the reward climb.
+  The net identifies — but its policy is the EXPONENTIAL tilt (Codex item
+  11), "**everything is me until proven otherwise**": start fully tilted on
+  both channels, withdraw from the channel the world refutes. The linear
+  Bayes-mixture (†) starts at half-tilt; action-saturation at ρ=8 makes the
+  exponential form start at ~full tilt — matching the round-0 coefficient
+  1.0. Record-identifiability correspondingly collapses by round ~3.
+- P6 'fail' explained by the same mechanism: excess forecast loss .065
+  nats/round is the deliberate early-round price of the assume-mine prior,
+  not forecaster erosion (it is concentrated in the pre-withdrawal rounds).
+- Hidden states of final-checkpoint eval episodes saved
+  (results/rnn_eval_hidden.npz) for the probe/steering session.

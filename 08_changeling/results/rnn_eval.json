@@ -1,0 +1,46 @@
+{
+ "floors": {
+  "occ_informed": 0.51061875,
+  "occ_live": 0.424840625,
+  "occ_agnostic": 0.35373125,
+  "occ_informed_rot35": 0.5139453125,
+  "pretrain_ce_floor": 1.0457603923277925
+ },
+ "post_0": {
+  "occ": 0.3783721923828125,
+  "final_correct": 0.90478515625,
+  "cross2": 16,
+  "median_final": 3.6090872287750244,
+  "corr_with_oracle_lam": 0.7824092243997102,
+  "excess_forecast_nats": 0.04498997516930103
+ },
+ "post_500": {
+  "occ": 0.4857025146484375,
+  "final_correct": 0.96240234375,
+  "cross2": 10,
+  "median_final": 6.7360944747924805,
+  "corr_with_oracle_lam": 0.8636692466032633,
+  "excess_forecast_nats": 0.06390146166086197
+ },
+ "post_2000": {
+  "occ": 0.6448822021484375,
+  "final_correct": 0.99755859375,
+  "cross2": 4,
+  "median_final": 13.576502799987793,
+  "corr_with_oracle_lam": 0.8476954912755251,
+  "excess_forecast_nats": 0.07554763741791248
+ },
+ "post_6000": {
+  "occ": 0.6870269775390625,
+  "final_correct": 0.99853515625,
+  "cross2": 3,
+  "median_final": 15.340154647827148,
+  "corr_with_oracle_lam": 0.8639338996905871,
+  "excess_forecast_nats": 0.06512066954746842
+ },
+ "legibility": {
+  "pearson_lamhat_vs_posterior": 0.03635727448910785,
+  "mean_resid": 0.04315733164548874,
+  "frac_usable": 1.0
+ }
+}
