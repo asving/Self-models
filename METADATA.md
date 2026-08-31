@@ -52,6 +52,9 @@ binary_family/              the 2026-08 theory core: two courts, renormalization
                             network experiment (transformer vs exact observer/agent floors)
 proposal_figs/              generating scripts for every proposal figure (exact filters,
                             autograd; ring-world court battery, SGD court, laws, scar)
+08_changeling/              who-am-I arc: per-episode embodiment of one of two coupled
+                            actors; zero-tilt unidentifiability lemma, identity premium,
+                            exact self-localization oracle + selected stage-2 world
 ```
 
 Conventions: each folder has `metadata.md` (purpose, inventory, run notes,
