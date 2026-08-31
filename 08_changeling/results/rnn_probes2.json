@@ -1,0 +1,39 @@
+{
+ "belief_joint_pre_final": {
+  "slope": 0.719,
+  "r2": 0.857,
+  "ctrl_slope": 0.102,
+  "ctrl_r2": 0.231
+ },
+ "belief_joint_post_6000": {
+  "slope": 0.671,
+  "r2": 0.354,
+  "ctrl_slope": -0.006,
+  "ctrl_r2": -0.008
+ },
+ "bodyswap_sham": {
+  "occ_rest": 0.76690673828125,
+  "coef_self_rest": 0.9973218441009521,
+  "coef_oth_rest": 0.1577102094888687,
+  "coef_self_t+1": 0.9945385456085205,
+  "coef_oth_t+1": 0.21882414817810059
+ },
+ "bodyswap_oneshot": {
+  "occ_rest": 0.76513671875,
+  "coef_self_rest": 0.9973025321960449,
+  "coef_oth_rest": 0.17286387085914612,
+  "coef_self_t+1": 0.9944291710853577,
+  "coef_oth_t+1": 0.25250929594039917
+ },
+ "bodyswap_clamp": {
+  "occ_rest": 0.74090576171875,
+  "coef_self_rest": 0.9894145131111145,
+  "coef_oth_rest": 0.42846542596817017,
+  "coef_self_t+1": 0.9944818615913391,
+  "coef_oth_t+1": 0.26429128646850586
+ },
+ "bodyswap_headdelta_t*": {
+  "mean_abs_dlog_u": 0.1139,
+  "mean_abs_dlog_v": 0.0916
+ }
+}

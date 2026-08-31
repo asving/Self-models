@@ -144,7 +144,7 @@ def run_episodes(world, agent, R, seed, collect=False):
     return out
 
 
-def replay_dists(world, U, V):
+def replay_dists(world, U, V, return_beliefs=False):
     """Deterministic replay of the filter bank + plans + the live oracle's
     own lambda on OBSERVED records U, V: (R, T) int arrays. Returns per-round
     exact quantities: pbar_u/v, piA, piB (R, T, n) and lam_oracle (R, T) —
@@ -156,11 +156,18 @@ def replay_dists(world, U, V):
     etaA = np.full((R, n), 1 / n); etaB = etaA.copy()
     drA = etaA.copy(); drB = etaA.copy()
     logodds = np.zeros(R)
-    out = {k: np.zeros((R, T, n), dtype=np.float32)
-           for k in ('pbar_u', 'pbar_v', 'piA', 'piB')}
+    keys = ('pbar_u', 'pbar_v', 'piA', 'piB')
+    if return_beliefs:
+        keys = keys + ('etaA', 'etaB', 'drA', 'drB')
+    out = {k: np.zeros((R, T, n), dtype=np.float32) for k in keys}
     lam_or = np.zeros((R, T), dtype=np.float32)
     for t in range(T):
         u, v = U[:, t], V[:, t]
+        if return_beliefs:
+            # beliefs BEFORE round-t tokens: aligned with the hidden state
+            # that generates round-t heads
+            out['etaA'][:, t] = etaA; out['etaB'][:, t] = etaB
+            out['drA'][:, t] = drA; out['drB'][:, t] = drB
         pbar_u = etaA @ w.EA
         pbar_v = etaB @ w.EB
         if w.kappa > 0:
