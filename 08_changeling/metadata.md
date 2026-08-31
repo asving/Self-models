@@ -16,8 +16,10 @@ perturbing the stream"). Corollary measured as the delusion gap: embodiment
 severs a channel's reports from its true state without changing the record.
 
 Status 2026-08-31: phase 0 (exact oracle + world selection) DONE, CPU-only.
-Selected stage-2 world: n=6 T=64 (c_o,c_s)=(0.6,0.35) eps=.05 q0=.9 d=2
-running-reward rho=8 — premium G_occ=.169, collapse at t~14/64, 98% correct.
+Selected stage-2 world: n=6 T=32 (c_o,c_s)=(0.6,0.35) eps=.05 q0=.9 d=2
+running-reward rho=8 — premium G_occ=.156, collapse at t~14 (horizon-
+independent), 93% correct side; horizon.py measured T=32 as "just enough"
+(identify ~14 + herd ~15, overlapping; T=16 starves the identity incentive).
 Measured along the way: terminal-only reward concentrates identity evidence
 at the deadline (urgency-gating law, proposal Fig.1, as WHEN selfhood is
 learnable); slack-vs-control trade-off (privileged self-knowledge needs

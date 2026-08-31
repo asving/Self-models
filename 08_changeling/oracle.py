@@ -59,7 +59,8 @@ def run_episodes(world, agent, R, seed, collect=False):
                 'p_true_evid': np.zeros((R, T)),
                 'p_true_dr': np.zeros((R, T)),
                 'u': np.zeros((R, T), dtype=np.int8),
-                'v': np.zeros((R, T), dtype=np.int8)}
+                'v': np.zeros((R, T), dtype=np.int8),
+                'ball': np.zeros((R, T), dtype=np.uint8)}
 
     for t in range(T):
         pbar_u = etaA @ w.EA
@@ -119,6 +120,7 @@ def run_episodes(world, agent, R, seed, collect=False):
         if collect:
             traj['u'][:, t] = u
             traj['v'][:, t] = v
+            traj['ball'][:, t] = w.success(sA, sB, 1)
             # whole-record statistic under the FIXED shared-filter evaluator
             # (identity-blind); used by V1's iota=A vs iota=B two-sample test
             traj['record_ll'] += (np.log(_rows(pbar_u, u))

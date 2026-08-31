@@ -25,7 +25,12 @@ from dataclasses import dataclass, field
 # .10->.05, reward = tolerance-1 ball (the natural "comfortably reach"),
 # kappa {8,16,32}. v0.0 numbers preserved in results/sweep_v0.json.
 N_STATES = 6
-T_HORIZON = 64
+# T=32 chosen by horizon.py on the selected world: identification is
+# horizon-independent (median 2-nat crossing at t=14 for every T under
+# running reward), informed late-episode performance plateaus by T~24-32,
+# and T=16 leaves the live agent only 24% of the premium (starves the
+# incentive). 32 = ~14 rounds to know who you are + ~15 to herd, overlapping.
+T_HORIZON = 32
 EPS_SLIP = 0.05
 G_FLOOR = 0.05
 DQ_ASYM = 0.15          # E_B fidelity = q0 - DQ_ASYM (actors differ)

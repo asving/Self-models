@@ -233,9 +233,10 @@ with q0=.9 reach ~.54. Eligibility re-based to occupancy (terminal-ball rate
 is the wrong comfort measure under running reward — the tilt tapers at the
 deadline by design).
 
-**Selected world (stage-2 target): n=6, T=64, (c_o, c_s) = (0.6, 0.35),
-eps=.05, q0=.9 (E_B fidelity .75), d=2, running reward on the tol-1 ball,
-rho=8, kappa=1.** Measured (R=3000/agent, seed 0):
+**Selected world (stage-2 target): n=6, T=32 (see horizon amendment below),
+(c_o, c_s) = (0.6, 0.35), eps=.05, q0=.9 (E_B fidelity .75), d=2, running
+reward on the tol-1 ball, rho=8, kappa=1.** Measured at T=64
+(R=3000/agent, seed 0):
 
 | metric | value |
 |---|---|
@@ -262,6 +263,19 @@ fixed shared-filter evaluator, ι=A vs ι=B two-sample test). Scope note for
 stage 2: dead-reckoning stays exact only while the in-context record
 carries no reward/terminal feedback — the stage-2 input format (tokens +
 goal + time only) respects this.
+
+**Horizon amendment (same session; horizon.py, R=4000/agent).** Asvin's
+requirement: give the model just about enough time to figure out who it is
+plus reach the goal. Measured: identification is horizon-independent
+(median 2-nat crossing at t=14 for EVERY T in {16..64} — under running
+reward the evidence rate is set by the tilt, not the deadline); informed
+late-8-round in-ball probability plateaus by T~24-32 (herding ~10-15 rounds
+from uniform start); what grows with T is only the fraction of the premium
+the live agent cashes (24% at T=16, 42% at T=32, 65% at T=64) and the
+final correct-side rate (.85/.93/.98). **T=32 selected**: live reaches 90%
+of the informed late-episode plateau, final-correct .93, G_occ .156 (94% of
+the T=64 premium), half the tokens; T=16 rejected (capture 24% — starves
+the identity incentive). results/horizon_v0.json, figs/horizon_v0.png.
 
 Prediction scorecard: P1 pass (as amended above). P2 held direction-wise
 (G > 0 everywhere with c_s > 0; grows with d up to feasibility, grows with
