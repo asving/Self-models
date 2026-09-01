@@ -1,0 +1,48 @@
+{
+ "reg_lambda_r2": 0.376,
+ "reg_sign_acc_late": 0.723,
+ "u_full_vs_eff": [
+  0.1341,
+  0.424
+ ],
+ "u_full_vs_tem": [
+  0.3181,
+  0.489
+ ],
+ "u_full_vs_wsr": [
+  -0.083,
+  0.424
+ ],
+ "u_notmine_vs_eff": [
+  0.017,
+  0.007
+ ],
+ "u_notmine_vs_tem": [
+  0.1798,
+  0.389
+ ],
+ "u_slope_retention_gates": 0.841,
+ "u_slope_retention_cand": 0.156,
+ "v_full_vs_eff": [
+  0.1867,
+  0.392
+ ],
+ "v_full_vs_tem": [
+  0.3158,
+  0.229
+ ],
+ "v_full_vs_wsr": [
+  0.1538,
+  0.639
+ ],
+ "v_notmine_vs_eff": [
+  -0.0091,
+  0.001
+ ],
+ "v_notmine_vs_tem": [
+  0.1703,
+  0.148
+ ],
+ "v_slope_retention_gates": 0.883,
+ "v_slope_retention_cand": 0.139
+}

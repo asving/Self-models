@@ -150,3 +150,44 @@ filter a genuine memory difference. Loose ends: decode λ from h·m̂ alone
 (magnitude vs sign content); bistability/basin test along m̂; then the
 synthetic program + verified-circuit diagram (all components now in hand:
 evidence terms → m̂-register → σ-gates → heads).
+
+## Iteration 9 (2026-09-01; efference.py) — the write mechanism, read on the register
+
+Architecture note for the record: single-layer GRU — ONE state h_t; heads
+read h_t directly; h_{t+1} = GRU(input_t+1, h_t). The efference copy is
+structurally free (the state that generated the intention IS the next
+recurrent input; the intended DISTRIBUTION, not the sample, is what
+persists — the sample returns as input).
+
+- **Register content:** rho = h·m̂ decodes λ at only R² .376 (late sign
+  accuracy .72). The register is coarse/sign-like — the causal store, not
+  the graded readout; the fine-grained readable λ (R² .93) is assembled
+  downstream (time × gate expression), matching E4 and the bistability
+  picture.
+- **The comparator is a PLAN TEMPLATE, not an efference copy.** On
+  channels the net has withdrawn from (its own head ≈ p̄ there, so a true
+  efference comparator would generate NO authorship evidence — flat
+  counterfactual profiles), the measured register-increment profiles are
+  tilt-shaped, matching the template hypothesis (u: R² .39, slope .18;
+  v: R² .15) while the efference regression carries no signal (its
+  hypothesis has ~no variance there, and the observed profile is not
+  flat). Authorship is detected TELEOLOGICALLY — "is this channel trying
+  to do what I would try to do?" — not by self-consistency with the
+  current policy. Design rationale (why training found this): a template
+  comparator preserves a recovery route (a withdrawn channel that starts
+  obeying my goals re-accrues mine-evidence — the measured 94%
+  wrong-commitment recovery needs exactly this), whereas an efference
+  comparator makes withdrawal self-fulfilling and unrecoverable.
+- **Comparator locus:** freezing the token's contribution to the CANDIDATE
+  input i_n kills the write (slope retention .16/.14 on u/v) while
+  freezing its gate inputs i_r, i_z barely matters (.84/.88). The
+  token-vs-template comparison happens in tanh(i_n + r∘(U_n h)) — the
+  token's one-hot slice meeting the state-carried template inside the
+  candidate nonlinearity — not via gate modulation.
+
+Updated verified circuit: evidence = TEMPLATE-match of each incoming token
+(computed in the candidate path) → ±increments on the coarse m̂ register
+(protected axis, re-polarizing) → per-round emission into rotating readout
+coordinates (the λ shadow) → σ(±.28λ+1.3) gates → plan-vs-forecast heads.
+Remaining for Silver/Gold: the synthetic numpy program + stitching test +
+the verified-circuit diagram.
