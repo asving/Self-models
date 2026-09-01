@@ -265,3 +265,41 @@ Figures (v1.2): figs/flagswitch.png, figs/circuit_graft.png.
 Open next: do the two writers share the gate readout (interaction test);
 flag-vs-evidence conflict dynamics (how many nats of evidence does the
 lying flag outweigh per round?).
+
+## Iteration 7 (2026-09-01; lambda_circuit.py, v1.2 post net) — the readable λ is a SHADOW; the carrier is distributed
+
+Manual-GRU recompute harness verified (max diff 1.5e-6 vs model.step,
+TF32 off). Three results, each a refutation that sharpens the picture:
+
+1. **No compact register exists.** INLP iterative erasure: λ decoder R²
+   decays .896→.31 over 24 projected-out directions WITHOUT hitting the
+   .15 floor — the readable code has no small basis; it is smeared
+   (holographically redundant) across the state.
+2. **The entire readable code is causally epiphenomenal for identity.**
+   Clamping all 24 directions to their per-round means EVERY round leaves
+   identity formation intact (occ .679 vs sham .685; coef_self .994;
+   final-correct .997) with only mild other-claim inflation (.22→.40 —
+   the same weak gate-adjacent coupling the v1.1 1-dim clamp showed).
+   Donor swaps in k=1/4/8/16 subspaces move the decoded λ by up to 24
+   NATS and behavior does not budge (coef_oth_rest .16-.19 ≈ sham; occ
+   unchanged); the shadow is rebuilt from the untouched carrier in 1-2
+   rounds. Conclusion: the probes read a projection the net exposes, not
+   the memory it computes with — which retroactively explains why no
+   linear lever achieved the body swap while the state-interactive flag
+   INPUT pathway (lying flag) did.
+3. **The write rule is not measurable through the linear readout.**
+   Counterfactual-token increment profiles of decoded λ are noise-level
+   (R² .006-.15; efference-vs-template inconclusive). The earlier pooled
+   increment coefficients (e_u .70 / e_v .64) describe the shadow's mean
+   update and survive as a consistency check, not a mechanism.
+
+Status: identity memory in this GRU is a NONLINEAR/DISTRIBUTED state
+property. Next tools, in order: (a) full-state donor transplant between
+matched opposite-identity episodes (locality ceiling), then bisect; (b)
+DAS to learn the aligning rotation for the distributed code; (c) gate
+surgery with the verified harness (freeze r/z gates to context means to
+localize the multiplicative site); (d) trace the lying-flag pathway — the
+one working causal handle — from input columns through the gates.
+Box note: transient failure fixed mid-session — a permission sweep had
+set the setgid bit on the uv python binary (loader refused $ORIGIN rpath);
+cleared with chmod g-s.
