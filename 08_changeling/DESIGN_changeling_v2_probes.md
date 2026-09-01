@@ -226,3 +226,42 @@ graft REFUTATION is void — reopened as the central question for v1.2: with
 a genuinely flag-gated midtrained circuit, does post-training graft the
 register or still build de novo? The two policies Asvin asked to find could
 not exist in the v1.1 net; re-measure on v1.2 mid_final (same E1-E4).
+
+## Iteration 6 (2026-09-01; v1.2 nets — working flag; flagswitch.py + circuit.py rerun)
+
+Training with the fixed flag: mid-final informed play 0.489 ≈ informed
+floor .511 (the bug WAS the P2 shortfall); flag-unknown mid play .336 ≈
+agnostic floor; post-training unchanged in headline (.328→.683 ≈ v1.1's
+.690 — final capability is curriculum-robust).
+
+**E1-E4 on v1.2 mid-final — Asvin's two policies found.** Toggle matrix:
+u-head plan-coefficient .919/.060/.495 under flag A/B/none (v mirrored);
+KL(plan||head)=.012 when flagged yours, KL(pbar||head)=.008 when flagged
+other's — one head genuinely switching between the tilted plan and the
+neutral forecast, sitting at their exact average unflagged. The flag-flip
+logit change IS the tilt direction (slope .79, R² .86 = ~80% of exact
+log-plan − log-pbar). Wiring: NOT rank-1 additive (top PC 49%; mean-
+direction patch recovers 14%) — state-interactive/GRU-gated; and PARTIALLY
+STORED: mid-episode flag flip converts the policy over ~4-5 rounds
+(.52/.73/.84/.90/.93/.95) — a register with ~2-round time constant.
+
+**The graft question, settled in two layers:**
+- Direction level: DE NOVO REPLICATES. cos(flag-dir, λ-dir) = .05-.11;
+  λ R² climbs .23→.91 across post-training with cos-to-flag flat — even
+  with a real register available, the evidence-integrator λ was built in
+  fresh, near-orthogonal coordinates.
+- Function level: THE FLAG PATHWAY SURVIVES AS A DOMINANT OVERRIDE. On the
+  v1.2 post net (trained 6000 steps with flag zeroed): truthful flag
+  SHARPENS identity behavior (other-claim .159→.041); a LYING flag largely
+  achieves the body swap nothing else could — self-claim .997→.542,
+  other-claim .159→.746, occupancy .758→.458 (mid net under lie: full swap
+  .05/.86). The additive mean-direction steer does NOT reproduce this
+  (state-interactive pathway ≠ its additive shadow, consistent with E3).
+Architecture summary: TWO WRITERS converge on the claim gates — the
+inherited input-driven flag pathway (potent, overriding, untouched by
+post-training) and the de-novo evidence integrator (default when no flag).
+B2/B3 replicate on v1.2 (e_u .70 / e_v .64; gates a≈.27, c≈1.25).
+Figures (v1.2): figs/flagswitch.png, figs/circuit_graft.png.
+Open next: do the two writers share the gate readout (interaction test);
+flag-vs-evidence conflict dynamics (how many nats of evidence does the
+lying flag outweigh per round?).
