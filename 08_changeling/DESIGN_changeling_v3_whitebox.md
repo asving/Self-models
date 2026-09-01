@@ -105,3 +105,48 @@ expression).** Remaining open: the micro-format of the distributed store
 (unit products / gate configurations) — DAS + gate-freezing surgery with
 the verified harness; and H6 (does the flag input feed the same funnel).
 Figures: figs/whitebox_diet.png (diet curves + transplant curves).
+
+## Iteration 8 (2026-09-01; format.py + distill.py) — THE FORMAT, FOUND
+
+"Holographic" was an artifact of intervening only along regression-fitted
+directions. The specific storage format:
+
+- **F1/F2**: per-round λ decoders reach R² .93 and their directions ROTATE
+  (adjacent-round cos .64; 16 rounds apart .41), but even per-round-fitted
+  and rotating-clamped swaps stay inert — rotation is not the answer.
+- **F3 (survival)**: matched-norm perturbations through paired
+  identical-token rollouts: the full twin-difference decays ×.88/round
+  (memory-like) while pooled, per-round, AND RANDOM directions all collapse
+  identically (×.37 after one round) — the dynamics treat every decoder
+  direction exactly as noise; 'healing' was always just contraction.
+- **F4**: no latched-unit committee (2/256 units with z̄>.9); the identity
+  difference is spread over ~62 effective units.
+- **DISTILLATION (the closure)**: propagate the matched-twin difference 4
+  rounds under paired identical tokens — the dynamics discard the noise
+  components (67.8% of norm survives) and what remains is, after sign
+  alignment, ONE GLOBAL DIRECTION: PCA top-1 = 83.1% of variance,
+  participation ratio 1.4. **Transplanting the 1-dim coefficient along
+  this direction reproduces the full 256-dim state swap almost exactly**
+  (self .79 vs .69, other .89 vs .93 at t+0; identical slow evidence-rate
+  erosion and occupancy cost .648 vs .636; PCA k=2/k=8 add nothing).
+- The direction is **near-orthogonal to every readout**: cos .06 with the
+  matched-round λ decoder — the store and its per-round emission (what all
+  probes read; = time × expression per E4) are separate, almost
+  perpendicular objects. Ridge provably picked the emission (it carries
+  the λ-covariance); the store carries the causal power.
+- Flag pathway (H6): cos(memory dir, flag write-direction) = .14 — the
+  flag does not write the register additively; it moves it through the
+  recurrent dynamics (matching the measured 4-5-round flag-flip
+  conversion).
+
+**The verified format:** identity is a 1-DIMENSIONAL REGISTER after all —
+the coefficient along a single, global, context-independent direction m̂,
+spread over ~60 units, (i) protected by dynamics that contract everything
+off-axis ×.37/round, (ii) plausibly re-polarized under partial writes
+(explains half-swap healing; bistability test pending), (iii) invisible to
+regression readouts, which latch onto the near-orthogonal per-round
+emission, and (iv) findable only by letting the network's own dynamics
+filter a genuine memory difference. Loose ends: decode λ from h·m̂ alone
+(magnitude vs sign content); bistability/basin test along m̂; then the
+synthetic program + verified-circuit diagram (all components now in hand:
+evidence terms → m̂-register → σ-gates → heads).
