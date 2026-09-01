@@ -106,11 +106,11 @@ oracle.replay_dists to return raw beliefs.
   hence the clean controls.)
 - **Q5: falsifier fired for one-shot, and the failure is the finding.** A
   one-shot λ-flip at t*=16 produces a small transient (other-channel plan
-  coef .25 vs sham .22 at t*+1) that heals within ~1-2 rounds — incoming
-  tokens re-derive identity: **perturbed self-location is a
-  corrected-class coordinate inside a trained network**, the changeling
-  prediction ('self-location is world-court business') observed
-  mechanistically. CLAMPING the λ-direction every round against the
+  coef .25 vs sham .22 at t*+1) that heals within ~1-2 rounds.
+  [CORRECTED in Iteration 3: the healing is ~6x FASTER than incoming
+  evidence permits, so it is internal redundancy repair, NOT world-court
+  correction — the original 'corrected-class observed' reading here was
+  wrong; see below.] CLAMPING the λ-direction every round against the
   evidence moves behavior partially: other-channel plan coefficient
   .16→.43 (rest-of-episode mean), occupancy .767→.741 — but the true-self
   channel never withdraws (.99): pushing the single λ-direction makes the
@@ -126,3 +126,40 @@ the variable level (beliefs ~99% linearly decodable + causally verified;
 λ 89% + causally active under clamp), transformation level (how the GRU
 computes Δλ from prediction-vs-outcome, how λ gates the heads) still open —
 that is the whitebox-skill target for a future session.
+
+## Iteration 3 (2026-09-01; probe3.py — Asvin's four challenges)
+
+1. **Belief co-variation is the WORLD's, not a representation defect.**
+   Canonical correlations of the belief VALUES across the data
+   distribution: .975/.935/.889 (the chains chase each other's reports,
+   c_o=.6). Principal angles between the jointly-fit η̃^A and η̃^B code
+   blocks: 43-81°, mostly >45° — substantially separated codes; the
+   partialling success (ctrl slope .94→.10) is the operational proof.
+   Pretraining factored the codes as far as the coupled world allows: the
+   product-of-simplices geometry holds as state space; its OCCUPANCY is
+   correlated by the dynamics.
+2. **Healing re-measured, prior claim corrected (Asvin's rate argument).**
+   Write-then-read: the one-shot flip along the λ block moves the DECODED
+   λ by 7.08 of 8.04 nats (the write takes), and the readout rejoins sham
+   in 4 rounds — while incoming identity evidence (.634 nats/round) would
+   need ~25 rounds for a Bayesian re-derivation. Healing is ~6x
+   super-Bayesian ⇒ internal redundancy / attractor repair, not evidence.
+   The identity memory behaves as an error-correcting code; the residual
+   traces that restore it are un-flipped correlates elsewhere in h.
+3. **One functional λ, not per-agent claim variables (surprising answer).**
+   The OUTPUT parameterization is two per-channel claims whose sum varies
+   (mean 1.30, sd .37; >1.3 in 37% of rounds — decisively not a Bayes
+   mixture, matching 'mine until proven otherwise'). But causally there is
+   ONE working coordinate: the λ-direction lever, clamped, drives the
+   other-channel claim up to ~.75 by the deadline (occupancy .767→.741),
+   while the per-channel claim directions — once partialled against λ —
+   are inert (withdraw: self-claim .993 ≈ sham .997; raise: other-claim
+   .113 ≈ sham .158; both occupancy ≈ sham). Reconciliation: claims ≈
+   σ(±a·λ + c) with claim-bias c>0 — single λ plus 'claim by default'
+   saturation reproduces both sum>1 and the decay. Caveats: linear levers
+   only; the self-claim never varies on-policy, so its write direction is
+   unlearnable from this data; the full mirror swap remains unachieved
+   (swap2: self-claim dents to .938, occupancy .692).
+4. Steering-efficacy figure: figs/steering_efficacy.png (belief-steering
+   scatter slope .75/R² .47 on the post net vs .72/.86 on the pre net;
+   write-then-read; clamped-lever claim curves; per-lever occupancy).

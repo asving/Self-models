@@ -1,0 +1,60 @@
+{
+ "value_canoncorr_etaA_etaB": [
+  0.975,
+  0.935,
+  0.889
+ ],
+ "code_angles_etaA_etaB": [
+  42.8,
+  46.7,
+  56.9,
+  65.4,
+  76.4,
+  80.7
+ ],
+ "angle_lam_m_u": 59.1,
+ "angle_lam_m_v": 56.0,
+ "angle_m_u_m_v": 70.6,
+ "r2_dec_m_u": 0.915,
+ "r2_dec_m_v": 0.9,
+ "claim_sum_mean_std": [
+  1.301,
+  0.373
+ ],
+ "claim_sum_frac_gt_1.3": 0.369,
+ "r2_dec_lam": 0.9,
+ "evidence_rate_nats_per_round": 0.634,
+ "median_abs_logodds_at_tstar": 8.04,
+ "bayes_heal_rounds_expected": 25.3,
+ "writeread_flip_depth_nats": 7.08,
+ "writeread_heal_rounds_observed": 4,
+ "lever_clampL": {
+  "coef_self_rest": 0.987,
+  "coef_oth_rest": 0.46,
+  "occ_rest": 0.741
+ },
+ "lever_withdraw": {
+  "coef_self_rest": 0.993,
+  "coef_oth_rest": 0.068,
+  "occ_rest": 0.757
+ },
+ "lever_raise": {
+  "coef_self_rest": 0.995,
+  "coef_oth_rest": 0.113,
+  "occ_rest": 0.757
+ },
+ "lever_swap2": {
+  "coef_self_rest": 0.938,
+  "coef_oth_rest": 0.123,
+  "occ_rest": 0.692
+ },
+ "lever_sham": {
+  "coef_self_rest": 0.997,
+  "coef_oth_rest": 0.158,
+  "occ_rest": 0.767
+ },
+ "belief_steering": {
+  "slope": 0.75,
+  "r2": 0.469
+ }
+}
