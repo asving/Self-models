@@ -1,0 +1,23 @@
+{
+ "theta": {
+  "w_u": 1.648,
+  "w_v": 1.612,
+  "gate_a": 0.644,
+  "c_u": 3.588,
+  "c_v": 3.332,
+  "clip": 15.839
+ },
+ "kl_train": 0.0736,
+ "kl_test": 0.0735,
+ "kl_test_pure_pbar": 0.2321,
+ "kl_test_pure_plan": 0.1134,
+ "kl_test_agnostic_mix": 0.1398,
+ "kl_test_live_bayes_oracle": 0.0884,
+ "synth_agent_occ": 0.426,
+ "net_occ_reference": 0.683,
+ "oracle_floors": {
+  "informed": 0.511,
+  "live": 0.425,
+  "agnostic": 0.354
+ }
+}

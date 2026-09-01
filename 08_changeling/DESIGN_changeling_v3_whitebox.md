@@ -191,3 +191,28 @@ Updated verified circuit: evidence = TEMPLATE-match of each incoming token
 coordinates (the λ shadow) → σ(±.28λ+1.3) gates → plan-vs-forecast heads.
 Remaining for Silver/Gold: the synthetic numpy program + stitching test +
 the verified-circuit diagram.
+
+## Iteration 10 (2026-09-01; synth.py) — THE SYNTHETIC PROGRAM (behavioral Silver)
+
+f_synth (all primitives exact, six fitted constants):
+  1. beliefs: factored Bayes filter, input-indexed linear + normalize
+  2. forecasts p̄ = ηE (linear); plans ∝ p̄ · (ηᴬᵀM_t[goal]ηᴮ) (bilinear)
+  3. register: ρ += w_u·tmpl(u) − w_v·tmpl(v), clip ±M  (template-match)
+  4. gates m_u = σ(aρ + c_u), m_v = σ(−aρ + c_v)
+  5. heads = m·plan + (1−m)·forecast.
+Fitted: w_u 1.65 ≈ w_v 1.61 (symmetric evidence weighting), a .64,
+c_u 3.59 / c_v 3.33 (default claim σ(3.5) ≈ .97 — matches the measured
+round-0 claim-both), clip 15.8 (register saturation).
+**Held-out faithfulness: KL(net‖synth) = .0735 nats/round/channel — better
+than every reference: live Bayes oracle .0884, pure plan .113, agnostic
+mixture .140, pure forecast .232.** The claims curves overlay the net's
+almost exactly (figs/synth.png). Closed loop, f_synth as the agent scores
+occupancy .426 = the live-oracle floor (.425), vs the net's .683: the
+identity machinery is fully captured; the residual is PLAN quality — the
+net's RL-improved plan beats the oracle h-table primitive the program
+borrows. That plan module is the one remaining black box.
+Status on the skill ladder: behavioral Silver for the identity circuit
+(distributional match + closed-loop dynamics), with the causal component
+verifications already banked (register transplant ≈ full swap; belief
+interventions slope .72). Queued for Gold: activation-level stitching with
+per-round embed maps + the verified-circuit diagram (example.png standard).
