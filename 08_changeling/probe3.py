@@ -47,8 +47,13 @@ def collect_full(model, n_eps, rng):
         rec = rollout_record(model, TorchWorld(w, DEV), pair, BATCH, 7000 + b)
         rep = replay_dists(w, rec['u'], rec['v'], return_beliefs=True)
         r = np.arange(BATCH)[:, None]; t = np.arange(w.T)[None, :]
-        dlog = (np.log(rec['pu'][r, t, rec['u']]) - np.log(rep['pbar_u'][r, t, rec['u']])
-                + np.log(rep['pbar_v'][r, t, rec['v']]) - np.log(rec['pv'][r, t, rec['v']]))
+        rep['e_u'] = (np.log(rec['pu'][r, t, rec['u']])
+                      - np.log(rep['pbar_u'][r, t, rec['u']])).astype(np.float32)
+        rep['e_v'] = (np.log(rep['pbar_v'][r, t, rec['v']])
+                      - np.log(rec['pv'][r, t, rec['v']])).astype(np.float32)
+        rep['tok_u'] = rec['u'].astype(np.int8)
+        rep['tok_v'] = rec['v'].astype(np.int8)
+        dlog = rep['e_u'] + rep['e_v']
         lo = np.cumsum(dlog, axis=1)
         rep['lam_logodds'] = np.concatenate([np.zeros((BATCH, 1)), lo[:, :-1]], 1)
         rep['dlog'] = dlog

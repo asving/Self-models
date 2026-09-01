@@ -163,3 +163,48 @@ that is the whitebox-skill target for a future session.
 4. Steering-efficacy figure: figs/steering_efficacy.png (belief-steering
    scatter slope .75/R² .47 on the post net vs .72/.86 on the pre net;
    write-then-read; clamped-lever claim curves; per-lever occupancy).
+
+## Iteration 4 (2026-09-01; circuit.py — the identification circuit)
+
+A. **Belief co-variation cannot be ameliorated by the start distribution**
+   (already uniform-iid): top canonical correlation is .981 per fixed round,
+   .946 per (round, goal), and .975 in the UN-tilted base world — it is the
+   coupled base dynamics (mutual pursuit, c_o=.6), not time trend, goal
+   herding, or the tilt. Decorrelating would mean weakening the coupling.
+   Methodological handling (joint-fit partialling) is the right response.
+
+B1. **Flag-graft hypothesis REFUTED — the identity register is built de
+   novo.** The mid-final net's flag write-direction is coherent (per-round
+   stability .997) and SURVIVES post-training almost unchanged (cos .951,
+   norm intact — a functional relic), but the post net's λ directions are
+   nearly orthogonal to it (|cos| .14 encoder / .04 decoder; random-baseline
+   .06 at d=256), and across post checkpoints λ decodability climbs .52→.91
+   while cos-to-flag stays ~.02-.04 flat. Causal confirmations: truthful vs
+   LYING flag inputs to the post net behave identically (occ .744/.743 —
+   the relic pathway no longer sets identity); steering along the flag
+   direction is weak then destructive (x1: other-claim .16→.30; x3:
+   self-claim collapses .70, occ .59 — off-manifold damage). Bonus finding:
+   the flag was barely load-bearing even at MID-final (occ truth/lie/zero =
+   .373/.407/.411) — midtraining installed the two plan libraries as
+   weakly-gated tilt-both behavior, not a flag-switched gate; so there was
+   no strong gate to graft, and post-training built register AND gating
+   fresh, co-emerging with the reward climb.
+
+B2. **The λ increment integrates BOTH courts, ~Bayes-proportionally.**
+   Regressing per-round changes of decoded λ on the two exact evidence
+   terms: coef(e_u, own-channel efference echo) = .711, coef(e_v,
+   other-channel disobedience) = .587 (Bayes: equal), intercept ~0;
+   shuffle R² = 0, token-identity baseline R² = .03, model R² = .116 — low,
+   but consistent with the readout-noise floor: differencing a readout with
+   level-R² .91 against ~.6-nat increments puts the ceiling near this value.
+   Claim kept at coefficient level: both evidence channels are wired in,
+   own-echo weighted ~1.2x disobedience.
+
+B3. **Gate transfer function measured:** m_u ≈ σ(.281·λ + 1.334),
+   m_v ≈ σ(.272·(−λ) + 1.191) (logit-R² .43). The claim-bias c ≈ 1.2-1.3
+   IS "mine until proven otherwise": at λ=0 the default claim is σ(1.3) ≈
+   .79. Circuit summary (variable level, all boxes measured):
+   [e_u + e_v evidence, ~equal weights] → [λ register, de-novo direction,
+   redundantly stored (Iter. 3)] → [per-channel gates σ(±.28λ + 1.25)] →
+   [heads mix plan vs forecast]. Transformation level (GRU arithmetic of
+   the evidence terms; the redundancy code) remains the whitebox target.

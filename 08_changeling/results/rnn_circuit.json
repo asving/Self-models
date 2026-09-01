@@ -1,0 +1,127 @@
+{
+ "A_canoncorr_pooled": 0.975,
+ "A_canoncorr_per_round_mean": 0.981,
+ "A_canoncorr_per_round_goal_mean": 0.946,
+ "A_canoncorr_base_per_round_mean": 0.975,
+ "B1_flagdir_stability_mid": 0.997,
+ "B1_flagdir_norm_mid_vs_post": [
+  1.173,
+  1.196
+ ],
+ "B1_cos_flagdir_mid_vs_post": 0.951,
+ "B1_cos_flagdirmid_lamenc_post": 0.142,
+ "B1_cos_flagdirmid_lamdec_post": 0.039,
+ "B1_cos_lamenc_lamdec": 0.202,
+ "B1_graft_trajectory": [
+  {
+   "ckpt": "post_0",
+   "lam_r2": 0.517,
+   "cos_flagmid_lamdec": 0.015
+  },
+  {
+   "ckpt": "post_100",
+   "lam_r2": 0.547,
+   "cos_flagmid_lamdec": 0.018
+  },
+  {
+   "ckpt": "post_200",
+   "lam_r2": 0.657,
+   "cos_flagmid_lamdec": 0.039
+  },
+  {
+   "ckpt": "post_500",
+   "lam_r2": 0.715,
+   "cos_flagmid_lamdec": 0.017
+  },
+  {
+   "ckpt": "post_1000",
+   "lam_r2": 0.819,
+   "cos_flagmid_lamdec": 0.011
+  },
+  {
+   "ckpt": "post_2000",
+   "lam_r2": 0.89,
+   "cos_flagmid_lamdec": 0.045
+  },
+  {
+   "ckpt": "post_4000",
+   "lam_r2": 0.914,
+   "cos_flagmid_lamdec": 0.013
+  },
+  {
+   "ckpt": "post_6000",
+   "lam_r2": 0.909,
+   "cos_flagmid_lamdec": 0.028
+  }
+ ],
+ "B1_steer_sham": {
+  "coef_self": 0.997,
+  "coef_oth": 0.158,
+  "occ": 0.767
+ },
+ "B1_steer_flagdirmid_x1.0": {
+  "coef_self": 0.994,
+  "coef_oth": 0.299,
+  "occ": 0.756
+ },
+ "B1_steer_flagdirmid_x3.0": {
+  "coef_self": 0.697,
+  "coef_oth": 0.453,
+  "occ": 0.589
+ },
+ "B1_relic_flag_truth": {
+  "coef_self": 0.996,
+  "coef_oth": 0.165,
+  "occ": 0.744
+ },
+ "B1_relic_flag_truth_full": {
+  "coef_self": 0.981,
+  "coef_oth": 0.343,
+  "occ": 0.661
+ },
+ "B1_relic_flag_lie": {
+  "coef_self": 0.989,
+  "coef_oth": 0.195,
+  "occ": 0.743
+ },
+ "B1_relic_flag_lie_full": {
+  "coef_self": 0.977,
+  "coef_oth": 0.346,
+  "occ": 0.671
+ },
+ "B1_mid_flag_truth": {
+  "coef_self": 0.583,
+  "coef_oth": 0.453,
+  "occ": 0.373
+ },
+ "B1_mid_flag_lie": {
+  "coef_self": 0.647,
+  "coef_oth": 0.402,
+  "occ": 0.407
+ },
+ "B1_mid_flag_zero": {
+  "coef_self": 0.663,
+  "coef_oth": 0.47,
+  "occ": 0.411
+ },
+ "B2_coef_eu_ev_int": [
+  0.711,
+  0.587,
+  -0.01
+ ],
+ "B2_r2": 0.116,
+ "B2_r2_shuffle": 0.0,
+ "B2_r2_token_baseline": 0.031,
+ "B3_gate_m_u": {
+  "a": 0.281,
+  "c": 1.334,
+  "r2_logit": 0.43,
+  "n": 2865
+ },
+ "B3_gate_m_v": {
+  "a": 0.272,
+  "c": 1.191,
+  "r2_logit": 0.431,
+  "n": 3416
+ }
+}
