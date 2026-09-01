@@ -208,3 +208,21 @@ B3. **Gate transfer function measured:** m_u ≈ σ(.281·λ + 1.334),
    redundantly stored (Iter. 3)] → [per-channel gates σ(±.28λ + 1.25)] →
    [heads mix plan vs forecast]. Transformation level (GRU arithmetic of
    the evidence terms; the redundancy code) remains the whitebox target.
+
+## Iteration 5 (2026-09-01; flagswitch.py — "find the two policies and the toggle") — ended in a BUG DISCOVERY
+
+Teacher-forced on-distribution toggle test of the v1.1 mid_final: NO toggle
+exists — plan coefficient .468/.473/.445 (u-head) under flag A/B/none,
+.51/.55/.53 (v-head); the flag-flip logit change is uncorrelated with the
+exact tilt direction (slope -.009, R² ~0). The mid net plays ONE policy:
+the average (half-plan half-forecast, both channels). Root cause found in
+rnn.features(): broken advanced indexing set both flag dims for everyone in
+mixed-identity batches — midtraining never saw an informative flag, so the
+average policy was the OPTIMAL fit to the corrupted task. Fix unit-tested;
+v1.1 ckpts archived (ckpt_v1.1_flagbug/); v1.2 (working flag) relaunched
+reusing pre_final. Consequences: all post-training analyses stand (flag
+zeroed there; rollouts use the correct step featurizer); Iteration-4's
+graft REFUTATION is void — reopened as the central question for v1.2: with
+a genuinely flag-gated midtrained circuit, does post-training graft the
+register or still build de novo? The two policies Asvin asked to find could
+not exist in the v1.1 net; re-measure on v1.2 mid_final (same E1-E4).

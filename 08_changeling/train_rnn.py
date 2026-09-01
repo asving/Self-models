@@ -250,6 +250,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--smoke', action='store_true')
     ap.add_argument('--seed', type=int, default=0)
+    ap.add_argument('--reuse-pre', action='store_true',
+                    help='load ckpt/pre_final.pt and skip pretraining '
+                         '(pretraining is flag-free, unaffected by the '
+                         '2026-09-01 flag-index bug)')
     args = ap.parse_args()
     cfg = dict(d=256, batch=256, pre_steps=4000, pre_lr=3e-4,
                mid_steps=8000, mid_lr=1e-4, mid_premix=0.2,
@@ -269,8 +273,12 @@ def main():
     log = {'cfg': cfg, 'seed': args.seed, 'floors': fl,
            'pre': [], 'mid': [], 'post_eval': [], 'mid_eval': {}}
 
-    run_pretrain(model, worlds, cfg, log)
-    torch.save(model.state_dict(), 'ckpt/pre_final.pt')
+    if args.reuse_pre:
+        model.load_state_dict(torch.load('ckpt/pre_final.pt'))
+        print('reusing ckpt/pre_final.pt, pretraining skipped', flush=True)
+    else:
+        run_pretrain(model, worlds, cfg, log)
+        torch.save(model.state_dict(), 'ckpt/pre_final.pt')
     frozen = ChangelingGRU(cfg['d']).to(DEV)
     frozen.load_state_dict(torch.load('ckpt/pre_final.pt'))
     frozen.eval()

@@ -143,7 +143,24 @@ variant; devtomo pass over the checkpoint pairs.
 
 ---
 
-## Measured outcomes (v1.0 / v1.1, 2026-08-31, seed 0)
+## BUG AMENDMENT (2026-09-01) — the flag never reached the network in v1.0/v1.1
+
+The teacher-forced featurizer (rnn.features) had a numpy indexing bug that
+set BOTH identity-flag dims for every episode whenever a batch mixed
+identities — i.e., THROUGHOUT MIDTRAINING the flag input carried zero
+information while the distillation targets were flag-conditional. The
+optimal fit to that (impossible) task is the flag-marginal average policy,
+which is exactly what Iteration-5 probing found (plan coefficient ~0.5 on
+both channels, no flag response, E2 slope -0.01). Blast radius:
+- UNAFFECTED: pretraining (no flag); ALL of post-training and its analyses
+  (flag zeroed there; rollouts use the correct step_features) — the λ
+  register, healing, gates, evidence-integration results stand.
+- AFFECTED: every claim about what midtraining "chose" to learn (it was
+  forced to the average); part of the P2 shortfall (informed-oracle
+  distillation could not be fit without the flag); and the FLAG-GRAFT
+  REFUTATION is reopened — there was never a real flag-gate to graft.
+Fixed (unit-tested), v1.1 checkpoints archived in ckpt_v1.1_flagbug/,
+v1.2 relaunched (reused pre_final; mid+post retrained with working flag).
 
 **v1.0 (archived, results/rnn_train_log_v1.0.json):** pretrain hit the exact
 filter floor (P1 pass, CE 1.046). Two pathologies, both diagnosed and fixed:

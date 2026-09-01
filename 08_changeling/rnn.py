@@ -32,7 +32,12 @@ def features(U, V, goals=None, iota=None, T=None):
         X[np.arange(R)[:, None], np.arange(T + 1)[None, :],
           (19 + goals[:, 1])[:, None]] = 1.0
     if iota is not None:
-        X[np.arange(R), :, np.where(iota, 25, 26)[:, None]] = 1.0
+        # (bug fixed 2026-09-01: the old index `X[np.arange(R), :, idx[:,None]]`
+        # broadcast across episodes and set BOTH flag dims for everyone when
+        # the batch mixed identities — the flag carried zero information
+        # throughout v1.0/v1.1 midtraining. See v1 design doc, bug amendment.)
+        X[np.arange(R)[:, None], np.arange(T + 1)[None, :],
+          np.where(iota, 25, 26)[:, None]] = 1.0
     X[:, :, 27] = (T - np.arange(T + 1))[None, :] / T
     return X
 
