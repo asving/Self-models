@@ -1,0 +1,41 @@
+{
+ "base_law": {
+  "KL_exact_to_net": 0.0051,
+  "KL_net_to_exact": 0.0055
+ },
+ "postnet_onpolicy": {
+  "KL_exact_to_net": 0.0029,
+  "KL_net_to_exact": 0.0031
+ },
+ "informedQ": {
+  "KL_exact_to_net": 0.0018,
+  "KL_net_to_exact": 0.0019
+ },
+ "random_tokens": {
+  "KL_exact_to_net": 0.0465,
+  "KL_net_to_exact": 0.0489
+ },
+ "random_drift_curve_t0_8_16_24_31": [
+  0.0,
+  0.0531,
+  0.0478,
+  0.0465,
+  0.0489
+ ],
+ "belief_base_law": {
+  "transfer_r2": 0.9888,
+  "refit_r2": 0.9888
+ },
+ "belief_postnet_onpolicy": {
+  "transfer_r2": 0.9853,
+  "refit_r2": 0.9898
+ },
+ "belief_informedQ": {
+  "transfer_r2": 0.9855,
+  "refit_r2": 0.9975
+ },
+ "belief_random_tokens": {
+  "transfer_r2": 0.8451,
+  "refit_r2": 0.8903
+ }
+}

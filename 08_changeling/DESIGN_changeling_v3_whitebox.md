@@ -372,3 +372,23 @@ dynamic range is the strategic deviation, total budget KL(net‖neutral) =
   0.000 — with the wrong goal the family can do no better than giving up
   the tilt entirely. The goal content is fully load-bearing: the proper
   answer to 'would the family fit anything history-dependent' is no.
+
+## Iteration 17 (2026-09-02; prefilter.py) — the pretrained filter off-manifold
+
+Teacher-forcing pre_final (native zero-goal inputs) across record types,
+against the exact filter: KL(exact p̄ ‖ net head) per round/channel:
+base-law (its manifold) .0051; post-net on-policy records .0029; informedQ
+(strongly tilted) .0018; uniform-random tokens .0465. The filter is MORE
+accurate on tilted streams than on its own manifold (informative tokens
+sharpen beliefs → less residual entropy to model), and on random garbage
+the error is 9x larger but BOUNDED and non-accumulating (drift curve flat:
+.053 at t=8 → .049 at t=31 — the learned update stays contractive; it
+tracks with constant lag rather than diverging). Belief-code stability:
+the base-fitted decoder transfers WITHOUT refit at R² .989/.985/.986
+(base/post/informedQ) and .845 on random tokens (refit .890).
+**Attribution:** the post-net whitebox's off-manifold gap (68% captured on
+base-law streams) is NOT the substrate's fault — the filter is near-exact
+there (.005) — it lives in the post-trained decision machinery (court +
+gates + tilt) running off-label on neutral streams it never met in
+training. World-model: faithful far beyond the manifold. Self-model:
+manifold-shaped.
