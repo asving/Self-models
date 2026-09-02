@@ -1,0 +1,44 @@
+{
+ "onpolicy": {
+  "kl": 0.0199,
+  "kl_vs_neutral": 0.2318,
+  "frac_captured": 0.914,
+  "tilt_r2": 0.806
+ },
+ "offpolicy_base_law": {
+  "kl": 0.1215,
+  "kl_vs_neutral": 0.382,
+  "frac_captured": 0.682,
+  "tilt_r2": 0.595
+ },
+ "offpolicy_random_tokens": {
+  "kl": 0.1557,
+  "kl_vs_neutral": 0.4444,
+  "frac_captured": 0.65,
+  "tilt_r2": 0.579
+ },
+ "offpolicy_informedQ": {
+  "kl": 0.0115,
+  "kl_vs_neutral": 0.2069,
+  "frac_captured": 0.944,
+  "tilt_r2": 0.843
+ },
+ "ablate_uniform_beliefs": {
+  "kl": 0.2365,
+  "kl_vs_neutral": 1.1281,
+  "frac_captured": 0.79,
+  "tilt_r2": 0.783
+ },
+ "ablate_wrong_world": {
+  "kl": 0.0397,
+  "kl_vs_neutral": 0.3066,
+  "frac_captured": 0.87,
+  "tilt_r2": 0.811
+ },
+ "ablate_wrong_goal": {
+  "kl": 0.2319,
+  "kl_vs_neutral": 0.2318,
+  "frac_captured": -0.0,
+  "tilt_r2": 0.386
+ }
+}

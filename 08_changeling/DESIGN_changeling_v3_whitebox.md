@@ -341,3 +341,34 @@ Held-out KL at theta-hat: .02184 ± .00113 (SE over 384 episodes).
   true-target fit. The family covers a thin structured manifold of policy
   space; the net lies inside it, and the data pin the scientifically
   loaded parameter (the temperature) tightly.
+
+## Iteration 16 (2026-09-02; fidelity.py) — proper fidelity measures (Asvin's critique; shuffle control RETRACTED)
+
+The episode-shuffle control of Iter. 15 is retracted as uninformative: the
+target heads are history-dependent, so even the net itself fails on
+mismatched records — it only re-proved history-dependence. Raw KL is also
+bulk-dominated (all family members share the neutral mass; the entire
+dynamic range is the strategic deviation, total budget KL(net‖neutral) =
+.232/round/channel). Replacements, per Asvin:
+
+- **Tilt-space fidelity (on-policy):** R² of the net's
+  deviation-from-neutral against the program's = **.806**; fraction of the
+  KL-departure captured = **.914**.
+- **Off-trajectory transfer, NO refit** (the algorithm-decoding test: the
+  program is beliefs-from-record → policy, so it must match on any
+  HMM-legal record): informedQ records (stronger tilt): frac captured
+  **.944**, tilt-R² .843 — extrapolates ALONG the goal-directed direction
+  better than on-policy. Base-law records: frac .68, tilt-R² .60.
+  Uniform-random tokens: frac .65, tilt-R² .58. Honest boundary: the net
+  implements the decoded algorithm faithfully on its manifold and beyond
+  it in the tilt direction, but its behavior on neutral/never-visited
+  streams deviates measurably from the exact algorithm (no training
+  pressure there) — the decoding is manifold+extrapolation, not
+  everywhere-exact.
+- **Wrong-backbone controls (7 params refit each, on-policy):** uniform
+  beliefs (filter off): KL .237 (12x worse — the filter is load-bearing).
+  Misspecified kernels (q0 .9→.7, c_o .6→.45): KL .040 (2x). WRONG GOAL
+  (rotated): KL .232 = the neutral baseline exactly, fraction captured
+  0.000 — with the wrong goal the family can do no better than giving up
+  the tilt entirely. The goal content is fully load-bearing: the proper
+  answer to 'would the family fit anything history-dependent' is no.
