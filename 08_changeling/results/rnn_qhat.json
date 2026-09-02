@@ -1,0 +1,12 @@
+{
+ "R2_vs_myopic_h": 0.596,
+ "slope_myopic": 2.055,
+ "R2_vs_optimalQ": 0.76,
+ "slope_optimalQ": 0.34,
+ "R2_joint": 0.762,
+ "joint_coefs_h_q": [
+  0.268,
+  0.306
+ ],
+ "corr_x1_x2": 0.855
+}

@@ -287,3 +287,17 @@ faithfulness beats KL .0735.
 within the ORACLE-PLAN family only; globally the told frontier is ≥ .686
 and the net sits .118 below it (~.02 strategy + ~.10 plan depth + identity
 cost).
+
+## Iteration 13 (2026-09-02; qhat.py) — the net's implicit Q, read off its logits
+
+At any stationary point of the KL-anchored objective, log π − log p̄ =
+ρ·Q^π + const(state), so Q̂ := (1/ρ)(log head − log p̄) is the net's own
+action-value, extractable with no probes. Measured on claimed channels
+(t ≥ 8, centered per round): Q̂ is explained by the OPTIMAL bootstrapped Q
+at R² .76 (myopic one-step value: .596; joint adds nothing, refs correlate
+.855) with slope .34 on ρQ_opt — i.e. the net's tilt has the optimal Q's
+SHAPE at about one-third the optimal STRENGTH (effective ρ ≈ 2.7 vs the
+trained 8), over-tilted 2.1x relative to the myopic value. This quantifies
+the plan bracket (.512/.683/.759) in the value domain: right value
+function, under-committed exponent — presumably where 6k more REINFORCE
+steps would go.
