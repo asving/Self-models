@@ -216,3 +216,41 @@ Status on the skill ladder: behavioral Silver for the identity circuit
 verifications already banked (register transplant ≈ full swap; belief
 interventions slope .72). Queued for Gold: activation-level stitching with
 per-round embed maps + the verified-circuit diagram (example.png standard).
+
+## Iteration 11 (2026-09-02; wiggle.py) — the wiggle premium is NEGATIVE
+
+BUG NOTE first: the closed-loop agent harnesses in synth.py/wiggle.py had a
+transposed channel assignment (vn took the net sample when iota=A);
+teacher-forced results unaffected; Iteration 10's "f_synth closed-loop occ
+.426 = live-oracle grade" is CORRECTED to **.507 ≈ the informed floor
+(.512)** — the program as an agent nearly matches known-identity play (the
+net's .683 gap over all oracle-plan agents remains pure plan quality).
+
+Measured under the actual composite J = occupancy − (1/8)·anchor-KL −
+forecast-KL (all closed-loop, R=3000, same plan primitive so the strategy
+comparison is controlled):
+
+| agent | occ | anchor | forecast | J | identity solved |
+|---|---|---|---|---|---|
+| informed (told) | .512 | .166 | 0 | **.491** | — |
+| fitted synth (tilt-as-probe) | .504 | .163 | .052 | **.432** | ~round 17 (5-nat) |
+| agnostic (claim-both forever) | .502 | .159 | .159 | .323 | never |
+| wiggle-1 (max-evidence probe) | .507 | .214 | .111 | .370 | round 0, court .997 |
+| wiggle-2/3/5 | .48/.47/.45 | ↑ | ↑ | .18/.01/−.34 | round 0 |
+
+Readings: (1) **reward is nearly identity-free under claim-both** —
+agnostic occupancy .502 ≈ informed .512: the entire value of
+self-knowledge in this composite is the forecast savings (.159→.052 ≈
+.11). (2) **Maximal-evidence probing works epistemically (identity at
+round 0, court .997 — confirming the ~4.8 nats/round bound) and loses
+economically**: its own costs (anchor spike + the probe round's terrible
+forecasts) exceed the value of earlier certainty. J(wiggle-1)=.370 <
+J(synth)=.432. (3) The net's learned strategy — identification as a free
+byproduct of goal-directed tilt — is within .059 of the told-identity
+upper bound, and that residual is mostly the irreducible cost of having
+to learn identity at all. Conclusion: the no-wiggle, claim-both,
+tilt-as-probe solution is ~optimal FOR THIS REWARD STRUCTURE, not a
+learning shortcut. To make probing optimal, the composite must gate
+REWARD on identity (single action budget, wrong-tilt penalties,
+conflicting goals) or raise the forecast weight — the selfhood-pressure
+dials from the v1 design notes.

@@ -98,7 +98,7 @@ def synth_agent(w, tw, R, seed, th):
         vn_net = np.argmax(cum > rng.random((R, 1)), 1)
         u_env, v_env = tw.emit(sA, sB)
         un = np.where(iota, un_net, u_env.cpu().numpy())
-        vn = np.where(iota, vn_net, v_env.cpu().numpy())
+        vn = np.where(iota, v_env.cpu().numpy(), vn_net)
         ms[:, t] = np.where(iota, m_u, m_v)
         mo[:, t] = np.where(iota, m_v, m_u)
         g_u = (np.log(piA[np.arange(R), un] + 1e-12)
