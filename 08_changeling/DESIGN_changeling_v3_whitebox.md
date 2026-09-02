@@ -319,3 +319,25 @@ about half the objective's nominal temperature; the remaining gap to the
 told-identity frontier is that temperature deficit plus the identity cost,
 not value-function error. (Gate/register constants rescale with the new
 register units; only invariant combinations are comparable across fits.)
+
+## Iteration 15 (2026-09-02; params.py) — identifiability & coverage of the 7-parameter fit
+
+Held-out KL at theta-hat: .02184 ± .00113 (SE over 384 episodes).
+- **Effective parameter count: 5.** Hessian on log-params has TWO zero
+  eigenvalues; the sloppiest eigenvector is (w_u +.51, w_v +.51, a −.51,
+  clip +.47) — exactly the predicted register-rescaling gauge. Eigenvalue
+  spectrum spans 0, 0, .0013, .0018, .016, .027, .217.
+- **Pinnedness hierarchy** (2·SE profile intervals, as multipliers):
+  β ∈ [.88, 1.14]x — the temperature is the stiffest quantity (the top
+  Hessian direction is 95% pure β): β = 3.87 ± ~13%. Evidence/gate
+  combinations intermediate (individually loose BECAUSE of the gauge).
+  Claim-biases c and the clip are soft ([.4, 2.5]x) — c only matters in
+  the opening rounds before evidence dominates; the clip rarely binds.
+- **Coverage:** random θ from the prior box lands at KL .039–.234
+  (5–95%), median .095 — the exact primitives (filter, Q, gate form) do
+  most of the work; fitting buys the last ~4x. The family CANNOT reach
+  unrelated targets: best fit to an episode-shuffled target (marginals
+  kept, history-dependence broken) is KL **2.00** — ~100x worse than the
+  true-target fit. The family covers a thin structured manifold of policy
+  space; the net lies inside it, and the data pin the scientifically
+  loaded parameter (the temperature) tightly.
