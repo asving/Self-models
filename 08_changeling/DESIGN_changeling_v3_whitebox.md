@@ -254,3 +254,36 @@ learning shortcut. To make probing optimal, the composite must gate
 REWARD on identity (single action budget, wrong-tilt penalties,
 conflicting goals) or raise the forecast weight — the selfhood-pressure
 dials from the v1 design notes.
+
+## Iteration 12 (2026-09-02; optimality.py) — optimality accounting, and the plan module identified
+
+(A) Full-information KL-control DP (36 joint states, exact): J*_fullinfo =
+.6446 — but anchored to the TRUE-STATE emission law, while the training
+objective anchors to the belief-based p̄; the achievable belief-anchored
+informedQ agent scores J = .6858 > .6446, so the state-anchored DP is NOT
+a valid bound for the trained objective (the belief anchor is a looser
+leash: deviating from a diffuse p̄ costs less than from the sharp E(·|s)).
+Valid structure instead: J_net ≤ J*_learning ≤ J*_told, with achievable
+witnesses below.
+(B) QMDP agents with the DP-optimal Q as plan primitive:
+  informedQ (told identity):  occ .759, J .686   [told-frontier witness]
+  synthQ (claim-both + template court + fitted gates, Q-plan):
+                              occ .757, J .591   [learning witness]
+  net:                        occ .683, J .568
+**Consequences.** (1) Q1 ANSWERED IN THE NEGATIVE: the net is provably NOT
+optimal among all policies — synthQ, an achievable identity-learning
+policy, dominates it by ΔJ = .024 (and by .074 occupancy), entirely via a
+better plan. The refined claim that survives: the net's IDENTIFICATION
+strategy (claim-both, tilt-as-probe, template court) is ~optimal-shaped —
+synthQ uses the same identity machinery; the shortfall is planning depth.
+Net = 96% of the best-known learning policy, ≥83% of the told frontier.
+(2) The 'mystery plan module' is BRACKETED: one-step base-law plan (occ
+.512) < net (.683) < optimal-Q plan (.759). The net's planner is a
+partially bootstrapped value — REINFORCE moved it partway from the myopic
+h-transform toward the self-consistent optimum. Next: refit f_synth with a
+planning-depth interpolation parameter and test whether teacher-forced
+faithfulness beats KL .0735.
+(3) Iteration-11's "within .059 of the told-identity upper bound" was
+within the ORACLE-PLAN family only; globally the told frontier is ≥ .686
+and the net sits .118 below it (~.02 strategy + ~.10 plan depth + identity
+cost).

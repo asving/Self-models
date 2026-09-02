@@ -1,0 +1,21 @@
+{
+ "J_upper_bound_fullinfo": 0.6446,
+ "informedQ": {
+  "occ": 0.759,
+  "anchor": 0.5859,
+  "forecast": 0.0,
+  "J": 0.6858
+ },
+ "synthQ": {
+  "occ": 0.7569,
+  "anchor": 0.5811,
+  "forecast": 0.0931,
+  "J": 0.5912
+ },
+ "net_reference": {
+  "occ": 0.683,
+  "anchor": 0.4033,
+  "forecast": 0.065,
+  "J": 0.5676
+ }
+}
