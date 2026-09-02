@@ -301,3 +301,21 @@ trained 8), over-tilted 2.1x relative to the myopic value. This quantifies
 the plan bracket (.512/.683/.759) in the value domain: right value
 function, under-committed exponent — presumably where 6k more REINFORCE
 steps would go.
+
+## Iteration 14 (2026-09-02; synth2.py) — the net IS the optimal-weighted π_g, at temperature β ≈ ρ/2
+
+Refit f_synth with plan ∝ p̄·e^{β·Q_opt} (optimal bootstrapped Q, learned
+temperature β; 7 constants total). Held-out KL(net‖synth-v2) = **0.0218**
+nats/round/channel — 3.4x better than the myopic-plan whitebox (.0735) and
+4x better than the exact live Bayes oracle (.0884). Fitted β = 3.87 ≈ half
+the trained ρ = 8 (supersedes the regression-slope estimate .34·ρ ≈ 2.7,
+which was attenuation-biased). Closed loop, the refit program scores
+occupancy **.6775 vs the net's .683** — the whitebox now matches the
+network's performance as well as its distributions. Verdict on Asvin's
+question: to the extent the whitebox describes the net (now to .022
+nats/round), the net has learned the optimal-weighted policy — the
+exponential tilt of the neutral law by the OPTIMAL value function — at
+about half the objective's nominal temperature; the remaining gap to the
+told-identity frontier is that temperature deficit plus the identity cost,
+not value-function error. (Gate/register constants rescale with the new
+register units; only invariant combinations are comparable across fits.)

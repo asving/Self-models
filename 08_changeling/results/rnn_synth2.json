@@ -1,0 +1,16 @@
+{
+ "theta": {
+  "beta": 3.868,
+  "w_u": 0.622,
+  "w_v": 0.473,
+  "a": 0.274,
+  "c_u": 0.389,
+  "c_v": 0.409,
+  "clip": 29.704
+ },
+ "kl_train": 0.021,
+ "kl_test": 0.0218,
+ "kl_test_v1_myopic_plan": 0.0735,
+ "closed_loop_occ": 0.6775,
+ "net_occ": 0.683
+}
