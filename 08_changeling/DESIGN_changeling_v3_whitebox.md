@@ -392,3 +392,34 @@ there (.005) — it lives in the post-trained decision machinery (court +
 gates + tilt) running off-label on neutral streams it never met in
 training. World-model: faithful far beyond the manifold. Self-model:
 manifold-shaped.
+
+## Iteration 18 (2026-09-03; offmanifold.py) — the fraying localized: the court fails OPEN off-manifold
+
+MID net (flag=A, its two jobs, across the record ladder): KL(plan‖u-head) /
+KL(p̄‖v-head) = .011/.008 on its manifold, **.024/.008 on base-law**
+(tilt-R² .89 — fine), .072/.044 on random tokens (≈ the substrate filter's
+own degradation), .005/.005 on post-net records. The flag-gated dual
+policy GENERALIZES — the fraying is a post-training acquisition. Confirmed.
+
+POST net, realized claims vs whitebox-predicted claims per record set:
+- own records: familiar evidence geometry (both-negative evidence cone
+  occupies only 6% of rounds); gate law present (refit slope .15).
+- base-law records: the both-negative cone is 51% of rounds (both courts
+  say 'not yours') — a region on-policy life NEVER produces — and there
+  the net's claims DO NOT respond: pinned at ~.89-.91 all episode (synth
+  predicts ~.56); gate-law refit slope .038, R² .03 — the gate is
+  functionally DEAD. Same on random tokens (claims ~.92 flat, slope .03).
+**The post net's court is wired only for the one-sided evidence geometry
+its own on-policy behavior produces; faced with the never-visited
+both-negative pattern it goes silent and the net FAILS OPEN — claims
+everything at its 'mine until proven otherwise' prior.** The whitebox's
+σ-gate extrapolates Bayes-wards where the net saturates — which is exactly
+the 68%/65% fidelity boundary of Iter. 16, now explained. Asvin's
+'on-policy self-calibration' hypothesis holds in a plain form: not subtle
+efference calibration, but evidence-cone coverage.
+
+Three-level summary, all measured: the world-model generalizes (filter:
+Iter. 17); the instructed self generalizes (mid net: above); the INFERRED
+self is manifold-shaped and fails open. Follow-up queued: register-vs-gate
+localization of the silence (does the m̂ register move on neutral streams
+and the gates ignore it, or does the write itself not fire?).
