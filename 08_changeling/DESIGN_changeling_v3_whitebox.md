@@ -532,3 +532,30 @@ ontology, claim-both prior); value/tilt — algorithmic on the visited cone
 only; beyond it, no algorithm to decode. Thread closed; queued next:
 spectator-episode training variant (2-dim court + broadened state support,
 both instruments ready), activation stitch, verified-circuit diagram, seeds.
+
+## Iteration 23 (2026-09-03; approx.py + rnn_approx2) — the off-manifold approximation NAMED; Iter-22's 'no algorithm' retracted
+
+Direct question first: off-manifold the net's per-arm output is a THIRD
+thing — roughly equidistant from neutral and from the exact plan (base-law:
+KL .42/.34 to neutral, .34/.51 to plan per arm).
+Model ladder on the raw tilt (held-out): schedule .58-.76; recent-tokens
+.74-.88; belief-bilinear .71-.89 (sharpening gamma>1: no gain — H-sharpen
+rejected). The tilt is ~89% belief-bilinear on base-law streams.
+**Direct reconstruction (P ∝ p̄·e^{fitted tilt}, NO gate layer, same-set
+fit, held-out episodes): base_law .039, random .078, both_tilted .038 —
+vs .10-.15 through the whitebox pipeline. And on-policy the direct
+(court-free) model does WORSE than the whitebox (.071 vs .020): the court
+carries real identity-dependent variance exactly on-manifold and
+contributes nothing off it.** Cross-set transfer of the tilt-function is
+poor (onpolicy→base .088, →random .165): the value surface deforms
+off-support.
+**The approximation, named:** off the herded-state cone the net runs the
+SAME functional form — exponential belief-conditioned tilt on the neutral
+law — with (a) gates resting at the claim-both prior (the 1-dim court
+cancellation; effectively constant high gain), and (b) a value surface
+that is the GRU's own smooth continuation: still bilinear-in-beliefs to
+~.89 R², but a deformed extension of the on-policy value, not Q_opt and
+not the on-policy Qhat. Iteration 22's 'bare extrapolation / no algorithm'
+is retracted in favor of: same algorithm-form, prior-pinned gates,
+off-calibration value surface. Residual truly unstructured piece: only
+the random-stream remainder (same-set .078).

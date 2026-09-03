@@ -1,0 +1,9 @@
+{
+ "onpolicy_direct_recon_KL": 0.0714,
+ "base_law_direct_recon_KL": 0.0393,
+ "random_direct_recon_KL": 0.0783,
+ "both_tilted_direct_recon_KL": 0.038,
+ "onpolicy->base_law_direct_recon_KL": 0.0883,
+ "onpolicy->random_direct_recon_KL": 0.1651,
+ "onpolicy->both_tilted_direct_recon_KL": 0.0434
+}
