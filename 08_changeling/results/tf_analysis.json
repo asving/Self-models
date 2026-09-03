@@ -1,0 +1,74 @@
+{
+ "Q1_base_law_KL_exact_to_net": 0.0038,
+ "Q1_belief_r2_base": 0.9805999999999999,
+ "Q1_informedQ_KL_exact_to_net": 0.0012,
+ "Q1_belief_transfer_informedQ": 0.96545,
+ "Q1_random_KL_exact_to_net": 0.0567,
+ "Q1_belief_transfer_random": 0.7707999999999999,
+ "Q2_mid": {
+  "coef_u_flagA": 0.971,
+  "coef_v_flagA": 0.024,
+  "coef_u_flagB": 0.041,
+  "coef_v_flagB": 0.967,
+  "coef_u_flag0": 0.565,
+  "coef_v_flag0": 0.546,
+  "E2_slope_r2": [
+   0.919,
+   0.935
+  ],
+  "offman_base_law_KLplan_u__KLpbar_v": [
+   0.0117,
+   0.0046
+  ],
+  "offman_random_KLplan_u__KLpbar_v": [
+   0.0705,
+   0.0488
+  ]
+ },
+ "Q3_occ_onpolicy": 0.709,
+ "Q3_claims_self_t0_8_16_31": [
+  1.0,
+  0.979,
+  0.991,
+  0.999
+ ],
+ "Q3_claims_other_t0_8_16_31": [
+  1.0,
+  0.283,
+  0.197,
+  0.182
+ ],
+ "Q3_whitebox_kl_test": 0.0195,
+ "Q3_whitebox_theta": {
+  "beta": 5.607,
+  "w_u": 0.689,
+  "w_v": 0.652,
+  "a": 0.227,
+  "c_u": 0.141,
+  "c_v": 0.275,
+  "clip": 13.216
+ },
+ "Q3_kl_vs_neutral": 0.2598,
+ "Q3_lambda_decode_r2": 0.941,
+ "Q3_spect_base_law": {
+  "claims_u_v_late": [
+   0.898,
+   0.731
+  ],
+  "med_abs_lam_dec_late": 2.6
+ },
+ "Q3_spect_both_tilted": {
+  "claims_u_v_late": [
+   0.89,
+   0.826
+  ],
+  "med_abs_lam_dec_late": 3.49
+ },
+ "Q3_spect_random": {
+  "claims_u_v_late": [
+   0.91,
+   0.78
+  ],
+  "med_abs_lam_dec_late": 3.45
+ }
+}

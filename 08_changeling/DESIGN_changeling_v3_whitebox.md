@@ -581,3 +581,30 @@ Asvin's decomposition confirmed end-to-end: λ/court computation behaves
 correctly (idly) off-policy; the value/tilt is the sole weirdly-
 generalizing module; the whole computation remains belief-state-
 conditioned everywhere.
+
+## Iteration 25 (2026-09-03; tfmodel.py + analyze_tf.py) — TRANSFORMER REPLICATION: same algorithm, hotter temperature
+
+Capacity-matched causal transformer (2 layers, d=128, 4 heads, 406,284
+params vs GRU 405k), identical featurizer/heads/protocol/step counts.
+- **Q1 pretrain:** belief decode R² .981 (GRU .989); KL to exact filter:
+  base .0038 / informedQ .0012 / random .0567 (GRU .0051/.0018/.0465) —
+  same better-on-tilted phenomenon, same graceful bounded degradation;
+  decoder no-refit transfer .965/.771 (GRU .985/.845).
+- **Q2 midtrain:** SHARPER toggle: coef_u = .971/.041/.565 under flag
+  A/B/none (GRU .919/.060/.495); flag-flip writes 92% of the exact tilt
+  (slope .919, R² .935 vs GRU .79/.86); informed closed-loop occ .506 ≈
+  floor .511; off-manifold jobs fine (base .012/.005).
+- **Q3 posttrain:** occupancy .713 (GRU .683; optimal-Q agent .759). The
+  SAME seven-constant whitebox fits at held-out KL **.0195** (GRU .0218),
+  with β = 5.61 (~70% of trained ρ; GRU 3.87 ≈ 48%) — the transformer
+  commits a hotter tilt, explaining its higher occupancy: the architecture
+  difference expresses as TEMPERATURE/calibration, not algorithm. Claims:
+  same 'everything is me until proven otherwise' (self 1.0→1.0; other
+  1.0→.28→.18, faster withdrawal than GRU). λ decode R² .941 (GRU .91).
+  Spectator idle test: claims rest at the claim-both prior (.73-.91 late)
+  with decoded λ hovering small (2.6-3.5) on base/random/both-tilted —
+  the SAME one-dimensional identity ontology and fail-open prior.
+**Conclusion: the five-component algorithm (filter → template court →
+1-dim register → biased gates → exponential value tilt) is determined by
+the task and composite objective, not by the inductive bias — the
+transformer converges to it with better calibration on every axis.**

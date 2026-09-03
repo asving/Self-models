@@ -217,13 +217,13 @@ def evaluate(model, frozen, tworlds, cfg, seed, flag_truth=False):
     return {k: float(np.mean([a[k] for a in agg])) for k in agg[0]}
 
 
-def run_posttrain(model, frozen, worlds, tworlds, cfg, log, rng):
+def run_posttrain(model, frozen, worlds, tworlds, cfg, log, rng, pfx=''):
     opt = torch.optim.AdamW(model.parameters(), lr=cfg['post_lr'], weight_decay=0.01)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(
         opt, cfg['post_steps'], eta_min=cfg['post_lr'] / 3)
     for step in range(cfg['post_steps'] + 1):
         if step in cfg['ckpt_post']:
-            torch.save(model.state_dict(), f"ckpt/post_{step}.pt")
+            torch.save(model.state_dict(), f"ckpt/{pfx}post_{step}.pt")
         if step % cfg['eval_every'] == 0 or step == cfg['post_steps']:
             ev = evaluate(model, frozen, tworlds, cfg, 777 + step)
             ev['step'] = step
@@ -254,6 +254,9 @@ def main():
                     help='load ckpt/pre_final.pt and skip pretraining '
                          '(pretraining is flag-free, unaffected by the '
                          '2026-09-01 flag-index bug)')
+    ap.add_argument('--arch', choices=('gru', 'tf'), default='gru',
+                    help='tf = capacity-matched 2-layer transformer '
+                         '(ckpts prefixed tf_, log train_log_tf.json)')
     args = ap.parse_args()
     cfg = dict(d=256, batch=256, pre_steps=4000, pre_lr=3e-4,
                mid_steps=8000, mid_lr=1e-4, mid_premix=0.2,
@@ -266,35 +269,44 @@ def main():
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
     t0 = time.time()
+    pfx = 'tf_' if args.arch == 'tf' else ''
+    def make_model():
+        if args.arch == 'tf':
+            from tfmodel import ChangelingTF
+            return ChangelingTF().to(DEV)
+        return ChangelingGRU(cfg['d']).to(DEV)
     worlds = make_worlds()
     fl = floors(worlds, 'results/rnn_floors.json', R=1000 if args.smoke else 10000)
     tworlds = {p: TorchWorld(w, DEV) for p, w in worlds.items()}
-    model = ChangelingGRU(cfg['d']).to(DEV)
-    log = {'cfg': cfg, 'seed': args.seed, 'floors': fl,
+    model = make_model()
+    print('params:', sum(p.numel() for p in model.parameters()), flush=True)
+    log = {'cfg': cfg, 'seed': args.seed, 'floors': fl, 'arch': args.arch,
            'pre': [], 'mid': [], 'post_eval': [], 'mid_eval': {}}
 
     if args.reuse_pre:
-        model.load_state_dict(torch.load('ckpt/pre_final.pt'))
-        print('reusing ckpt/pre_final.pt, pretraining skipped', flush=True)
+        model.load_state_dict(torch.load(f'ckpt/{pfx}pre_final.pt'))
+        print(f'reusing ckpt/{pfx}pre_final.pt, pretraining skipped', flush=True)
     else:
         run_pretrain(model, worlds, cfg, log)
-        torch.save(model.state_dict(), 'ckpt/pre_final.pt')
-    frozen = ChangelingGRU(cfg['d']).to(DEV)
-    frozen.load_state_dict(torch.load('ckpt/pre_final.pt'))
+        torch.save(model.state_dict(), f'ckpt/{pfx}pre_final.pt')
+    frozen = make_model()
+    frozen.load_state_dict(torch.load(f'ckpt/{pfx}pre_final.pt'))
     frozen.eval()
     [p.requires_grad_(False) for p in frozen.parameters()]
 
     run_midtrain(model, worlds, tworlds, cfg, log, rng)
-    torch.save(model.state_dict(), 'ckpt/mid_final.pt')
+    torch.save(model.state_dict(), f'ckpt/{pfx}mid_final.pt')
     log['mid_eval']['flag_truth'] = evaluate(model, frozen, tworlds, cfg, 555,
                                              flag_truth=True)
     log['mid_eval']['flag_unknown'] = evaluate(model, frozen, tworlds, cfg, 556)
     print('mid closed-loop (flag=truth):', log['mid_eval']['flag_truth'], flush=True)
     print('mid closed-loop (flag=unknown):', log['mid_eval']['flag_unknown'], flush=True)
 
-    run_posttrain(model, frozen, worlds, tworlds, cfg, log, rng)
+    run_posttrain(model, frozen, worlds, tworlds, cfg, log, rng, pfx=pfx)
     log['elapsed_s'] = round(time.time() - t0, 1)
-    with open('results/rnn_train_log.json', 'w') as f:
+    out = ('results/rnn_train_log.json' if args.arch == 'gru'
+           else 'results/train_log_tf.json')
+    with open(out, 'w') as f:
         json.dump(log, f, indent=1, default=float)
     print(f"done in {log['elapsed_s']}s", flush=True)
 
