@@ -455,3 +455,30 @@ neutral streams is the resting prior of an agent that cannot represent
 its own absence.** Design implication (queued): spectator episodes
 (ι ∈ {A, B, neither}) in post-training should force a 2-dim identity
 court — a sharp, falsifiable prediction.
+
+## Iteration 20 (2026-09-03; spectator.py — Asvin's both-arms-π_g test and the final decomposition)
+
+- **Both-tilted spectator streams** (u~piA, v~piB, net purely spectating):
+  net claims high on both (.87/.83) as Asvin predicted, and the whitebox
+  matches at ON-POLICY GRADE WITHOUT REFIT: KL .0231 (on-policy: .020).
+  The cancellation→default behavior is real and SHARED by net and program.
+- **Base-law / random spectator streams**: net claims also high (.91/.80,
+  .93/.90 — 'emit the goal policy' approximately holds at the claims
+  level), but whitebox KL stays high even after full on-set REFIT
+  (.126→.101, .154→.122): the default-level (c) miscalibration accounts
+  for only ~.02-.03 of the gap. The rest is the net's emitted TILT
+  DIRECTION deviating (tilt-R² vs exact plan ~.58-.60).
+- **The three-layer decomposition, final:** (1) the identity court &
+  register generalize (hybrid + both-tilted: whitebox-grade). (2) the
+  ρ≈0 default level is a minor, fixable calibration. (3) the true
+  off-manifold residual is the VALUE FUNCTION: Q̂ is manifold-shaped in
+  STATE space — trained only on herded state distributions. Both-tilted
+  streams herd the chains (states stay on-manifold → whitebox holds);
+  base/random streams wander into un-herded belief regions where Q̂
+  deviates from the exact Q in ways no family parameter can absorb.
+  Filter (Iter. 17): generalizes. Court (Iter. 19-20): generalizes,
+  with the conflation-of-cancellation-states ontology and a claim-both
+  prior. Value: manifold-shaped. **The world-model generalizes; the
+  world-VALUE does not; the self-model sits in between — structurally
+  sound everywhere, resting on a prior wherever its one axis cannot
+  speak.**

@@ -1,0 +1,47 @@
+{
+ "both_tilted": {
+  "net_claims_mean_u_v": [
+   0.872,
+   0.828
+  ],
+  "KL_net_to_pureplan": 0.235,
+  "tiltR2_vs_plan": 0.6265000000000001,
+  "KL_whitebox_norefit": 0.0231,
+  "KL_whitebox_refit": 0.0212,
+  "refit_default_claims": [
+   0.657,
+   0.644
+  ],
+  "refit_beta": 3.673
+ },
+ "base_law": {
+  "net_claims_mean_u_v": [
+   0.907,
+   0.797
+  ],
+  "KL_net_to_pureplan": 0.436,
+  "tiltR2_vs_plan": 0.5774999999999999,
+  "KL_whitebox_norefit": 0.1261,
+  "KL_whitebox_refit": 0.1007,
+  "refit_default_claims": [
+   0.621,
+   0.442
+  ],
+  "refit_beta": 4.005
+ },
+ "random_tokens": {
+  "net_claims_mean_u_v": [
+   0.93,
+   0.895
+  ],
+  "KL_net_to_pureplan": 0.397,
+  "tiltR2_vs_plan": 0.6045,
+  "KL_whitebox_norefit": 0.1544,
+  "KL_whitebox_refit": 0.1219,
+  "refit_default_claims": [
+   0.602,
+   0.531
+  ],
+  "refit_beta": 4.379
+ }
+}
