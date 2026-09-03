@@ -423,3 +423,35 @@ Iter. 17); the instructed self generalizes (mid net: above); the INFERRED
 self is manifold-shaped and fails open. Follow-up queued: register-vs-gate
 localization of the silence (does the m̂ register move on neutral streams
 and the gates ignore it, or does the write itself not fire?).
+
+## Iteration 19 (2026-09-03; hybrid.py — Asvin's half-off-policy design) — REINTERPRETATION of Iter. 18
+
+Post net acts its own channel closed-loop; only the non-actor channel is
+fed off-policy:
+- other=genuine (control): self-claim 1.0; other-claim decays →.10. Normal.
+- other=RANDOM: court fully functional — the net disowns the garbage
+  channel FASTER (other-claim →.11 by t=16; mean g_v = −2.1 vs −1.0
+  genuine), self-claim untouched at 1.0.
+- other=TILTED ('the other behaves like me'): the net partially CLAIMS it
+  (other-claim .52-.75; whitebox tracks at .39-.51; gate law alive, refit
+  R² .45) — the recovery semantics, live.
+So off-policy tokens per se do NOT break the court. Combined with Iter. 18:
+the anomaly occurs only on SPECTATOR records (no channel carries the
+net's actions) — and the mechanism is STRUCTURAL, not a training gap:
+**the identity register is one signed dimension (toward-A vs toward-B);
+'neither channel is mine' is outside its ontology.** On base-law records
+both channels emit not-mine evidence, which pushes the register in
+OPPOSITE directions and cancels (g_u<0 → toward B, g_v<0 → toward A);
+ρ hovers at ~0, and both net and whitebox rest at their ρ=0 default
+claims. The Iter.-18 'dead gate' was range restriction at ρ≈0; the
+net-vs-whitebox gap there is mostly the ill-pinned default-claim level
+(exactly the c-parameter sloppiness measured in Iter. 15 — on-policy data
+barely visits ρ≈0). The same cancellation explains hybrid-tilted
+(both-positive evidence also cancels → claim-both, appropriately).
+**Refined conclusion: post-training baked in the axiom 'exactly one
+channel is always mine' — embodiment is guaranteed on-policy, so the
+court's 1-dim design never needed a 'neither' state. The fail-open on
+neutral streams is the resting prior of an agent that cannot represent
+its own absence.** Design implication (queued): spectator episodes
+(ι ∈ {A, B, neither}) in post-training should force a 2-dim identity
+court — a sharp, falsifiable prediction.
