@@ -482,3 +482,29 @@ court — a sharp, falsifiable prediction.
   world-VALUE does not; the self-model sits in between — structurally
   sound everywhere, resting on a prior wherever its one axis cannot
   speak.**
+
+## Iteration 21 (2026-09-03; qextract.py — Asvin's closure test) — the value-fraying attribution is INSUFFICIENT
+
+Extracted the net's own Qhat per point (mixture-inverted with its claim
+coefficient, beta fixed), fit the synth's value ontology (per-round
+bilinear-in-beliefs tables) per record set, tested cross-set consistency
+and whitebox reconstruction with the extracted value.
+- Consistency: the Qhat function transfers across sets about as well as it
+  fits within sets (cross .51-.77 vs within .62-.81) — no evidence of
+  set-specific value functions — but it is only MODERATELY bilinear in the
+  exact beliefs anywhere (within-set ceiling .62-.81).
+- **Reconstruction: on-policy and both-tilted reconstruct at whitebox
+  grade (.020-.037), but base-law and random streams stay at KL .11-.18
+  EVEN WITH the net's own Qhat fitted on the very same set (base->base
+  .107 vs exact-Q .126).** The un-herded-stream residual is therefore NOT
+  a value-table error: no value function over the exact beliefs, the
+  net's own included, closes it. Iteration 20's attribution ('the
+  residual is the manifold-shaped value') is corrected: on un-herded
+  states the net's emitted tilt is not representable in the whitebox's
+  functional form (gates x exponential tilt of a belief-bilinear value)
+  at all.
+- Remaining suspects, next probes: (a) the POST net's own internal belief
+  estimates on weird streams (pre-net beliefs transfer at .99/.85; post
+  unmeasured — extract Qhat as a function of the net's DECODED beliefs
+  instead of exact beliefs); (b) genuinely non-bilinear state dependence
+  of its tilt off-manifold.
