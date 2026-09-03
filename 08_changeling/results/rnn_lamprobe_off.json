@@ -1,0 +1,91 @@
+{
+ "onpolicy": {
+  "med_abs_lam_dec_t8_16_31": [
+   5.63,
+   9.17,
+   10.69
+  ],
+  "med_abs_lam_true_t8_16_31": [
+   4.52,
+   8.17,
+   14.72
+  ],
+  "corr_lamdec_lamtrue": 0.944,
+  "med_abs_register": 2.91,
+  "claims_u_v_late": [
+   0.636,
+   0.565
+  ]
+ },
+ "register_onpolicy_signedspread": 2.91,
+ "base_law": {
+  "med_abs_lam_dec_t8_16_31": [
+   2.02,
+   2.03,
+   2.12
+  ],
+  "med_abs_lam_true_t8_16_31": [
+   1.52,
+   1.97,
+   2.74
+  ],
+  "corr_lamdec_lamtrue": 0.284,
+  "med_abs_register": 1.869,
+  "claims_u_v_late": [
+   0.908,
+   0.804
+  ]
+ },
+ "random": {
+  "med_abs_lam_dec_t8_16_31": [
+   2.39,
+   2.58,
+   2.38
+  ],
+  "med_abs_lam_true_t8_16_31": [
+   1.75,
+   2.38,
+   3.21
+  ],
+  "corr_lamdec_lamtrue": 0.246,
+  "med_abs_register": 1.905,
+  "claims_u_v_late": [
+   0.935,
+   0.89
+  ]
+ },
+ "both_tilted": {
+  "med_abs_lam_dec_t8_16_31": [
+   2.93,
+   4.31,
+   4.87
+  ],
+  "med_abs_lam_true_t8_16_31": [
+   1.86,
+   2.37,
+   2.85
+  ],
+  "corr_lamdec_lamtrue": 0.779,
+  "med_abs_register": 1.508,
+  "claims_u_v_late": [
+   0.865,
+   0.824
+  ]
+ },
+ "gate_pooled_u": [
+  0.216,
+  1.555,
+  0.318,
+  21988
+ ],
+ "gate_pooled_v": [
+  0.172,
+  0.866,
+  0.256,
+  34072
+ ],
+ "belief_sufficiency_base": {
+  "beliefs_only": 0.893,
+  "beliefs_plus_tokens": 0.917
+ }
+}

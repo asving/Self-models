@@ -559,3 +559,25 @@ not the on-policy Qhat. Iteration 22's 'bare extrapolation / no algorithm'
 is retracted in favor of: same algorithm-form, prior-pinned gates,
 off-calibration value surface. Residual truly unstructured piece: only
 the random-stream remainder (same-set .078).
+
+## Iteration 24 (2026-09-03; lamprobe_off.py) — internal identity state off-policy: the court is idle, as decomposed
+
+- **Internal λ (frozen on-policy readout):** on-policy |λ_dec| median
+  5.6→10.7 across rounds, tracking record-truth at r=.944. On spectator
+  sets it HOVERS NEAR ZERO: 2.0-2.6 (base/random; ≈ the readout noise
+  floor), 2.9-4.9 (both-tilted); the m̂-register coefficient likewise
+  drops (1.9 vs 2.9 on-policy). The court is idle off-policy, exactly per
+  the cancellation account — and the arms are both CLAIMED AT THE PRIOR
+  (measured .80-.94), not unclaimed.
+- **Gate coherence:** one pooled σ(aλ+c) curve across all four sets gives
+  a=.22/.17, c=1.56/.87 — at λ≈0 it predicts claims .83/.70, bracketing
+  the measured off-policy claims; pooled per-point R² is only ~.3 (readout
+  + coefficient noise dominate at small λ), so coherence holds at the
+  set-median level, not per-point.
+- **Belief sufficiency:** on base-law streams, recent tokens add only
+  +.024 R² beyond the beliefs (.893 → .917): the off-policy tilt depends
+  on the trajectory essentially only THROUGH the belief state.
+Asvin's decomposition confirmed end-to-end: λ/court computation behaves
+correctly (idly) off-policy; the value/tilt is the sole weirdly-
+generalizing module; the whole computation remains belief-state-
+conditioned everywhere.
