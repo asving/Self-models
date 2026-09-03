@@ -1,0 +1,48 @@
+{
+ "onpolicy_belief_drift_TV_A_B": [
+  0.024,
+  0.03
+ ],
+ "base_law_belief_drift_TV_A_B": [
+  0.066,
+  0.076
+ ],
+ "random_belief_drift_TV_A_B": [
+  0.176,
+  0.191
+ ],
+ "both_tilted_belief_drift_TV_A_B": [
+  0.027,
+  0.033
+ ],
+ "cross_set_qhat_r2_decoded": {
+  "onpolicy->onpolicy": 0.622,
+  "onpolicy->base_law": 0.617,
+  "onpolicy->random": 0.498,
+  "onpolicy->both_tilted": 0.71,
+  "base_law->onpolicy": 0.559,
+  "base_law->base_law": 0.75,
+  "base_law->random": 0.577,
+  "base_law->both_tilted": 0.732,
+  "random->onpolicy": 0.523,
+  "random->base_law": 0.691,
+  "random->random": 0.622,
+  "random->both_tilted": 0.699,
+  "both_tilted->onpolicy": 0.573,
+  "both_tilted->base_law": 0.618,
+  "both_tilted->random": 0.513,
+  "both_tilted->both_tilted": 0.754
+ },
+ "recon2_onpolicy->onpolicy": 0.026,
+ "recon2_onpolicy->base_law": 0.1089,
+ "recon2_onpolicy->random": 0.1444,
+ "recon2_onpolicy->both_tilted": 0.0392,
+ "recon2_base_law->onpolicy": 0.02,
+ "recon2_base_law->base_law": 0.1017,
+ "recon2_base_law->random": 0.1177,
+ "recon2_base_law->both_tilted": 0.0208,
+ "recon2_both_tilted->onpolicy": 0.0205,
+ "recon2_both_tilted->base_law": 0.1029,
+ "recon2_both_tilted->random": 0.1302,
+ "recon2_both_tilted->both_tilted": 0.0207
+}

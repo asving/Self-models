@@ -508,3 +508,27 @@ and whitebox reconstruction with the extracted value.
   unmeasured — extract Qhat as a function of the net's DECODED beliefs
   instead of exact beliefs); (b) genuinely non-bilinear state dependence
   of its tilt off-manifold.
+
+## Iteration 22 (2026-09-03; qextract2.py) — suspect 1 refuted; the algorithm has a support boundary
+
+Decoded the post net's internal beliefs (readout fit on-policy, frozen,
+applied everywhere) and ran the fully internal-belief whitebox (pbar and
+value features both from decoded beliefs).
+- **Belief drift (TV, net-internal vs exact):** onpolicy .024/.030 (decoder
+  floor), both_tilted .027/.033, base_law .066/.076, random .176/.191. The
+  POST net's world-model stays calibrated off-manifold (matching the
+  pre-net result) — drift is far too small to explain the gap.
+- **Reconstruction:** base->base .102 (vs .107 exact-belief, .126 exact-Q);
+  random->random .118. NO improvement. Suspect 1 dead.
+**By elimination, suspect 2 stands: on un-herded streams the net's emitted
+tilt is not any belief-conditioned value tilt through the whitebox's form —
+it is bare function-approximation extrapolation of the GRU outside its
+training support. The decoded algorithm has a DOMAIN: the herded-state
+cone plus goal-directed extrapolations (whitebox grade .02-.04); outside
+it, ~45% of the tilt variance follows no algorithm we can name (within-set
+bilinear ceiling .62-.75 there).** Final ledger of the off-manifold thread:
+filter — algorithmic everywhere; court — algorithmic everywhere (1-dim
+ontology, claim-both prior); value/tilt — algorithmic on the visited cone
+only; beyond it, no algorithm to decode. Thread closed; queued next:
+spectator-episode training variant (2-dim court + broadened state support,
+both instruments ready), activation stitch, verified-circuit diagram, seeds.
