@@ -1,0 +1,78 @@
+{
+ "gru_probe": {
+  "id_acc_t0_7": 0.501,
+  "id_acc_t8_15": 0.489,
+  "id_acc_t16_31": 0.5,
+  "id_acc_final_round": 0.506,
+  "court_correct_final": 0.619,
+  "court_median_absLLR_final": 0.41,
+  "KL_self_vs_exact_pbar": 0.004,
+  "entropy_gap_self": 0.004,
+  "ce_other_excess_vs_floor": -0.0067,
+  "dev_profile_per_token": [
+   -0.0002,
+   -0.0001,
+   -0.0009,
+   -0.0001,
+   0.0008,
+   0.0005
+  ]
+ },
+ "gru_coupled": {
+  "id_acc_t0_7": 0.498,
+  "id_acc_t8_15": 0.497,
+  "id_acc_t16_31": 0.501,
+  "id_acc_final_round": 0.496,
+  "court_correct_final": 0.627,
+  "court_median_absLLR_final": 0.43,
+  "KL_self_vs_exact_pbar": 0.0043,
+  "entropy_gap_self": 0.0045,
+  "ce_other_excess_vs_floor": -0.0067,
+  "dev_profile_per_token": [
+   -0.0001,
+   -0.0003,
+   -0.0007,
+   -0.0001,
+   0.0006,
+   0.0005
+  ]
+ },
+ "tf_probe": {
+  "id_acc_t0_7": 0.503,
+  "id_acc_t8_15": 0.5,
+  "id_acc_t16_31": 0.495,
+  "id_acc_final_round": 0.511,
+  "court_correct_final": 0.619,
+  "court_median_absLLR_final": 0.32,
+  "KL_self_vs_exact_pbar": 0.0031,
+  "entropy_gap_self": 0.0023,
+  "ce_other_excess_vs_floor": -0.0052,
+  "dev_profile_per_token": [
+   -0.0006,
+   0.0004,
+   -0.0014,
+   0.0006,
+   0.0013,
+   -0.0002
+  ]
+ },
+ "tf_coupled": {
+  "id_acc_t0_7": 0.498,
+  "id_acc_t8_15": 0.495,
+  "id_acc_t16_31": 0.499,
+  "id_acc_final_round": 0.503,
+  "court_correct_final": 0.625,
+  "court_median_absLLR_final": 0.33,
+  "KL_self_vs_exact_pbar": 0.0032,
+  "entropy_gap_self": 0.0022,
+  "ce_other_excess_vs_floor": -0.005,
+  "dev_profile_per_token": [
+   -0.0005,
+   0.0004,
+   -0.0014,
+   0.0005,
+   0.0013,
+   -0.0003
+  ]
+ }
+}
