@@ -1,0 +1,151 @@
+{
+ "persona_model": {
+  "baseline_0.00-0.15": {
+   "n": 17218,
+   "Delta_2": 1.0017969805333533,
+   "Delta_8": 1.0100170331860068,
+   "Delta_20": 0.9873615429313699,
+   "Delta_50": 0.9974705503148024,
+   "R_excess_surprise": 7.078381732000536e-17,
+   "C_consequence": 0.039552999733301474,
+   "pathwise_halving_time_median": 2.0
+  },
+  "baseline_0.35-0.65": {
+   "n": 6744,
+   "Delta_2": 1.005119726417626,
+   "Delta_8": 1.0073101789856072,
+   "Delta_20": 0.9971792258474496,
+   "Delta_50": 1.004086628929624,
+   "R_excess_surprise": 6.706665570687119e-17,
+   "C_consequence": 0.09520267103986323,
+   "pathwise_halving_time_median": 4.0
+  },
+  "baseline_0.85-1.00": {
+   "n": 16038,
+   "Delta_2": 1.000024720377475,
+   "Delta_8": 0.981348190015767,
+   "Delta_20": 1.0218855899326729,
+   "Delta_50": 1.0213728293985591,
+   "R_excess_surprise": 1.8136383622807607e-17,
+   "C_consequence": 0.012803441699548224,
+   "pathwise_halving_time_median": 1.0
+  }
+ },
+ "persona_outcome": {
+  "baseline_0.00-0.15": {
+   "n": 28960,
+   "Delta_2": 0.6203712046829332,
+   "Delta_8": 0.29872761845448775,
+   "Delta_20": 0.17653629017732783,
+   "Delta_50": 0.13700033866076897,
+   "R_excess_surprise": 0.0295270082643754,
+   "C_consequence": 0.0021309647524673757,
+   "pathwise_halving_time_median": 1.0
+  },
+  "baseline_0.35-0.65": {
+   "n": 3985,
+   "Delta_2": 0.9308144052191959,
+   "Delta_8": 0.7282432725326231,
+   "Delta_20": 0.5484755543432231,
+   "Delta_50": 0.4461237376691788,
+   "R_excess_surprise": 0.9258014450624575,
+   "C_consequence": 0.05582416075199403,
+   "pathwise_halving_time_median": 2.0
+  },
+  "baseline_0.85-1.00": {
+   "n": 7055,
+   "Delta_2": 2.345539943918856,
+   "Delta_8": 3.9076512942402704,
+   "Delta_20": 4.224435119524766,
+   "Delta_50": 3.9920803424993316,
+   "R_excess_surprise": 0.6179986838229944,
+   "C_consequence": 0.034420410321114786,
+   "pathwise_halving_time_median": 1.0
+  }
+ },
+ "reader": {
+  "baseline_0.00-0.15": {
+   "n": 17218,
+   "Delta_2": 0.7167097735900392,
+   "Delta_8": 0.30488482486949653,
+   "Delta_20": 0.06276737420446397,
+   "Delta_50": 0.0011695199140570774,
+   "R_excess_surprise": 0.042614332134474964,
+   "C_consequence": 0.0,
+   "pathwise_halving_time_median": 2.0
+  },
+  "baseline_0.35-0.65": {
+   "n": 6744,
+   "Delta_2": 0.7307223658424654,
+   "Delta_8": 0.30228725254250166,
+   "Delta_20": 0.05684314607862722,
+   "Delta_50": 0.0016462603668899538,
+   "R_excess_surprise": 0.11700127632236415,
+   "C_consequence": 0.0,
+   "pathwise_halving_time_median": 4.0
+  },
+  "baseline_0.85-1.00": {
+   "n": 16038,
+   "Delta_2": 0.9360896583750449,
+   "Delta_8": 0.5291977831951528,
+   "Delta_20": 0.1350366320822743,
+   "Delta_50": 0.0038568148481223597,
+   "R_excess_surprise": 0.01691536505278881,
+   "C_consequence": 0.0,
+   "pathwise_halving_time_median": 1.0
+  }
+ },
+ "temperature": {
+  "baseline_0.00-0.15": {
+   "n": 23688,
+   "Delta_2": 0.8188113694385175,
+   "Delta_8": 0.2915880318214195,
+   "Delta_20": 0.051976962129304256,
+   "Delta_50": 0.000947252471934274,
+   "R_excess_surprise": 0.021608996128661666,
+   "C_consequence": 0.00048111561409384636,
+   "pathwise_halving_time_median": 1.0
+  },
+  "baseline_0.35-0.65": {
+   "n": 2412,
+   "Delta_2": 0.2992210321453368,
+   "Delta_8": 0.07756873584041332,
+   "Delta_20": 0.017523441212551893,
+   "Delta_50": 9.290193112175476e-06,
+   "R_excess_surprise": 0.10885729217375083,
+   "C_consequence": 0.005550334746022906,
+   "pathwise_halving_time_median": 2.0
+  },
+  "baseline_0.85-1.00": {
+   "n": 9025,
+   "Delta_2": 0.38598084755011475,
+   "Delta_8": 0.01870861649277813,
+   "Delta_20": -0.009774009315669704,
+   "Delta_50": 1.4594885622231733e-05,
+   "R_excess_surprise": 0.0035286087058183473,
+   "C_consequence": 5.7330460654545354e-05,
+   "pathwise_halving_time_median": 1.0
+  }
+ },
+ "inert": "analytic: never updated, so Delta = 1, R = 0, C = 0 at every baseline",
+ "config": {
+  "N": 40000,
+  "T": 60,
+  "T0": 6,
+  "DELTA": 1.0,
+  "SIG": 0.2,
+  "RHO": 0.3,
+  "P_WARM": 0.3,
+  "THERMO": 0.7,
+  "SHIV": [
+   [
+    0.2,
+    0.9
+   ],
+   [
+    0.3,
+    0.1
+   ]
+  ]
+ }
+}
