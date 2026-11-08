@@ -1,0 +1,110 @@
+[
+ {
+  "N": 2,
+  "slip": 0.1,
+  "informed": 0.894,
+  "live": 0.865,
+  "detect_median": 1.0,
+  "detect_frac": 0.998,
+  "hedge": 0.489,
+  "nearest": 0.786,
+  "premium_live_vs_best_free": 0.079,
+  "premium_informed_vs_best_free": 0.108
+ },
+ {
+  "N": 2,
+  "slip": 0.3,
+  "informed": 0.738,
+  "live": 0.711,
+  "detect_median": 2.0,
+  "detect_frac": 1.0,
+  "hedge": 0.405,
+  "nearest": 0.618,
+  "premium_live_vs_best_free": 0.093,
+  "premium_informed_vs_best_free": 0.12
+ },
+ {
+  "N": 2,
+  "slip": 0.5,
+  "informed": 0.564,
+  "live": 0.532,
+  "detect_median": 5.0,
+  "detect_frac": 0.998,
+  "hedge": 0.323,
+  "nearest": 0.455,
+  "premium_live_vs_best_free": 0.077,
+  "premium_informed_vs_best_free": 0.109
+ },
+ {
+  "N": 3,
+  "slip": 0.1,
+  "informed": 0.894,
+  "live": 0.854,
+  "detect_median": 2.0,
+  "detect_frac": 0.998,
+  "hedge": 0.459,
+  "nearest": 0.701,
+  "premium_live_vs_best_free": 0.153,
+  "premium_informed_vs_best_free": 0.193
+ },
+ {
+  "N": 3,
+  "slip": 0.3,
+  "informed": 0.738,
+  "live": 0.699,
+  "detect_median": 4.0,
+  "detect_frac": 1.0,
+  "hedge": 0.376,
+  "nearest": 0.534,
+  "premium_live_vs_best_free": 0.165,
+  "premium_informed_vs_best_free": 0.204
+ },
+ {
+  "N": 3,
+  "slip": 0.5,
+  "informed": 0.564,
+  "live": 0.516,
+  "detect_median": 7.0,
+  "detect_frac": 0.996,
+  "hedge": 0.299,
+  "nearest": 0.383,
+  "premium_live_vs_best_free": 0.133,
+  "premium_informed_vs_best_free": 0.181
+ },
+ {
+  "N": 4,
+  "slip": 0.1,
+  "informed": 0.895,
+  "live": 0.844,
+  "detect_median": 3.0,
+  "detect_frac": 0.997,
+  "hedge": 0.368,
+  "nearest": 0.624,
+  "premium_live_vs_best_free": 0.22,
+  "premium_informed_vs_best_free": 0.271
+ },
+ {
+  "N": 4,
+  "slip": 0.3,
+  "informed": 0.739,
+  "live": 0.69,
+  "detect_median": 5.0,
+  "detect_frac": 1.0,
+  "hedge": 0.305,
+  "nearest": 0.466,
+  "premium_live_vs_best_free": 0.224,
+  "premium_informed_vs_best_free": 0.273
+ },
+ {
+  "N": 4,
+  "slip": 0.5,
+  "informed": 0.565,
+  "live": 0.504,
+  "detect_median": 8.0,
+  "detect_frac": 0.994,
+  "hedge": 0.25,
+  "nearest": 0.332,
+  "premium_live_vs_best_free": 0.172,
+  "premium_informed_vs_best_free": 0.233
+ }
+]

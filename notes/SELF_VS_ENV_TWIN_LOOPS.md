@@ -233,3 +233,21 @@ Comparison: version A (no feedback) vs version B (action fed back, unlabelled; t
 LLM-style setup).
 
 CPU world selection: `09_twin_loops/contingency_select.py`.
+
+**World-selection result** (`09_twin_loops/contingency_select.py` → `results/contingency_select.json`).
+Setup: ring R = 8, T = 32, 20k runs per cell. Occupancy = fraction of steps with
+the controlled ball exactly at the goal. The identity premium is that of live
+Bayes over the best identity-free convention.
+
+The premium is real everywhere (0.08–0.22) and grows with N:
+- **N = 2:** the "nearest ball" convention is strong (0.79 vs live 0.87 at slip
+  0.1), so the premium is only about 0.08.
+- **N = 4, slip 0.3:** informed 0.74, live 0.69, nearest 0.47, hedge 0.31;
+  premium 0.22; median detection 5 steps.
+- **N = 4, slip 0.5:** premium 0.17; detection 8 steps.
+
+Chosen first world: **N = 4, slip 0.3–0.5** (detection 5–8 steps, which leaves
+most of a 32-step episode for exploitation).
+
+Not yet computed: the payoff to probing (a positive wiggle premium), and
+observation noise.
