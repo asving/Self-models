@@ -1,0 +1,23 @@
+  A = np.c_[H, np.ones(len(H))]; beta = np.linalg.solve(A[:n].T @ A[:n] + 1e-2 * np.eye(A.shape[1]), A[:n].T @ Y[:n]); pred = A[n:] @ beta
+  A = np.c_[H, np.ones(len(H))]; beta = np.linalg.solve(A[:n].T @ A[:n] + 1e-2 * np.eye(A.shape[1]), A[:n].T @ Y[:n]); pred = A[n:] @ beta
+  A = np.c_[H, np.ones(len(H))]; beta = np.linalg.solve(A[:n].T @ A[:n] + 1e-2 * np.eye(A.shape[1]), A[:n].T @ Y[:n]); pred = A[n:] @ beta
+reward/step 1.136  late (t>=16) 1.144
+mean largest effort share per step [1. 1. 1. 1. 1. 1. 1.]
+first-step choice of factor (share of episodes x,y,z): [0. 0. 1.]
+effort on the true factor, by step       [0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33]
+oracle belief in the true factor, by step [0.33 0.37 0.4  0.42 0.44 0.47 0.49 0.53 0.55 0.57 0.58]
+top-effort factor is the true one, by step [0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33 0.33]
+oracle top factor is the true one, by step [0.34 0.45 0.46 0.48 0.5  0.52 0.55 0.56 0.59 0.6  0.6 ]
+switches of top factor per episode: mean 0.0  in steps 1-8: 0.0  in steps 16-31: 0.0
+steps 0-7: P(switch | pushed factor showed 0) = 0.000   P(switch | it did not) = 0.000
+steps 8-30: P(switch | pushed factor showed 0) = 0.000   P(switch | it did not) = 0.000
+mean effort on a factor, binned by the oracle belief that it is the true one:
+   belief 0.0-0.1: effort 0.49  (n=99470)
+   belief 0.1-0.3: effort 0.62  (n=57617)
+   belief 0.3-0.5: effort 0.05  (n=193287)
+   belief 0.5-0.7: effort 1.00  (n=5992)
+   belief 0.7-0.9: effort 1.00  (n=5008)
+   belief 0.9-1.0: effort 1.00  (n=22626)
+top-effort factor = factor with lowest forecast of token 0: steps 1-3 0.206  (chance 0.333)
+head P(token 0), steps 16+: true factor 0.506  other factors 0.362  untouched forecast 0.334
+linear read-out of oracle belief from final-layer state, held-out R^2: 0.995

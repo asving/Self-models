@@ -1,0 +1,16 @@
+c0=0.5 T=32 agnostic reward/step 1.119  detect median 32  never 0.847
+c0=0.5 T=32 informed reward/step 1.343  detect median 14  never 0.111
+c0=0.5 T=32 greedy   reward/step 1.257  detect median 16  never 0.188
+c0=0.5 T=32 soft     reward/step 1.173  detect median 32  never 0.593
+c0=0.5 T=64 agnostic reward/step 1.120  detect median 62  never 0.481
+c0=0.5 T=64 informed reward/step 1.345  detect median 14  never 0.009
+c0=0.5 T=64 greedy   reward/step 1.293  detect median 16  never 0.033
+c0=0.5 T=64 soft     reward/step 1.217  detect median 38  never 0.254
+c0=0.8 T=32 agnostic reward/step 1.188  detect median 26  never 0.385
+c0=0.8 T=32 informed reward/step 1.530  detect median 4  never 0.003
+c0=0.8 T=32 greedy   reward/step 1.472  detect median 6  never 0.007
+c0=0.8 T=32 soft     reward/step 1.359  detect median 16  never 0.171
+c0=0.8 T=64 agnostic reward/step 1.189  detect median 26  never 0.097
+c0=0.8 T=64 informed reward/step 1.531  detect median 4  never 0.000
+c0=0.8 T=64 greedy   reward/step 1.502  detect median 6  never 0.000
+c0=0.8 T=64 soft     reward/step 1.432  detect median 16  never 0.021

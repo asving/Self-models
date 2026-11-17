@@ -1,0 +1,6 @@
+/Users/asvin/astera-claude/group-belief/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:2922: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/Users/asvin/astera-claude/group-belief/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:2923: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+{"reward": 1.002796875, "reward_late": 1.005625, "w_true": [0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33], "oracle_post_true": [0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33], "corr_w_post": NaN, "tilt_active_late": 0.00014755835864464125, "tilt_inactive_late": 0.00016081058552033016, "wmax_mean": 0.3333333432674408, "step": 0} 2s
+{"reward": 1.030734375, "reward_late": 1.0349375, "w_true": [0.33, 0.33, 0.33, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34], "oracle_post_true": [0.33, 0.33, 0.33, 0.34, 0.34, 0.34, 0.34, 0.34, 0.35, 0.35], "corr_w_post": 0.47852019049071454, "tilt_active_late": 0.08939741632353951, "tilt_inactive_late": 0.08476003626590527, "wmax_mean": 0.40234035049472006, "step": 250} 100s
