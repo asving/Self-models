@@ -1,0 +1,20 @@
+reward/step 1.475  late (t>=16) 1.526
+mean largest effort share per step [1.   0.99 1.   0.99 1.   1.   1.  ]
+first-step choice of factor (share of episodes x,y,z): [0. 0. 1.]
+effort on the true factor, by step       [0.33 0.5  0.66 0.71 0.75 0.81 0.84 0.9  0.93 0.96 0.98]
+oracle belief in the true factor, by step [0.33 0.42 0.52 0.61 0.67 0.76 0.83 0.9  0.94 0.98 0.99]
+top-effort factor is the true one, by step [0.33 0.5  0.66 0.71 0.75 0.81 0.84 0.9  0.93 0.96 0.98]
+oracle top factor is the true one, by step [0.34 0.52 0.66 0.72 0.77 0.83 0.89 0.93 0.96 0.98 1.  ]
+switches of top factor per episode: mean 2.25  in steps 1-8: 1.54  in steps 16-31: 0.34
+steps 0-7: P(switch | pushed factor showed 0) = 0.006   P(switch | it did not) = 0.647
+steps 8-30: P(switch | pushed factor showed 0) = 0.004   P(switch | it did not) = 0.174
+mean effort on a factor, binned by the oracle belief that it is the true one:
+   belief 0.0-0.1: effort 0.01  (n=209744)
+   belief 0.1-0.3: effort 0.09  (n=29120)
+   belief 0.3-0.5: effort 0.37  (n=27099)
+   belief 0.5-0.7: effort 0.75  (n=9530)
+   belief 0.7-0.9: effort 0.89  (n=14575)
+   belief 0.9-1.0: effort 0.99  (n=93932)
+top-effort factor = factor with lowest forecast of token 0: steps 1-3 0.121  (chance 0.333)
+head P(token 0), steps 16+: true factor 0.968  other factors 0.061  untouched forecast 0.334
+linear read-out of oracle belief from final-layer state, held-out R^2: 0.923

@@ -1,0 +1,4 @@
+price_rules.py:
+informed 1.5474 | greedy 1.4926 | proxy 1.4907 | MAP 1.4918
+price_info.py (EIG for first n steps then MAP):
+n=0 1.4918 | n=4 1.4914 | n=8 1.4902 | n=32 1.4877

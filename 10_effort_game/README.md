@@ -56,6 +56,8 @@ The untouched rate is 1.00 (each factor shows 0 a third of the time).
 |---|---|---|
 | a | `post.py 4000 1.0 a` (ENT = 0) | complete (2026-11-13) |
 | b | `post.py 4000 1.0 b 0.05` | killed at step 250 on 2026-11-13; rerun in full 2026-11-17 (21 min on `mps`) |
+| c | `post.py 4000 0 c 0.05` (pure RL + entropy bonus) | 2026-11-17, via `run_pure_rl.sh` |
+| d | `post.py 4000 0 d 0` (pure RL) | 2026-11-17, via `run_pure_rl.sh` |
 | bsearch_* | `find_b.sh` | 250-step runs used to identify run b's arguments |
 
 Originals from 2026-11-13 are in `orig/`.
@@ -115,3 +117,77 @@ Not done:
 - whether run b uses its belief causally (steering the read-out direction);
 - the reason the first-step choice is always z;
 - longer ENT = 0.01 and 0.03 runs.
+
+## Pure RL: runs c and d (2026-11-17)
+
+These runs drop the prediction loss (LAM = 0). Blind predictions are in `PREDICTIONS_pure_rl.md`,
+written before launch.
+
+| | a (LAM 1, ENT 0) | b (LAM 1, ENT .05) | c (LAM 0, ENT .05) | d (LAM 0, ENT 0) |
+|---|---|---|---|---|
+| reward/step (late) | 1.136 (1.144) | 1.392 (1.449) | 1.481 (1.533) | 1.475 (1.526) |
+| effort on the true stream at t = 31 | .33 | .93 | .98 | .98 |
+| corr(effort, oracle belief) at step 4000 | −0.02 | 0.90 | 0.95 | 0.92 |
+| head P(0): true stream / others / untouched | .51/.36/.33 | .88/.35/.33 | .993/.27/.33 | .968/.061/.33 |
+| belief read-out R² | 0.995 | 0.948 | 0.955 | 0.923 |
+| reward at step 250 | 1.13 | 1.03 | 1.44 | 1.44 |
+
+- **Without the prediction loss, both runs learn to track the controlled stream quickly**, with or without
+  the entropy bonus. **This corrects the claim above** that the entropy bonus is the knob that decides the outcome.
+  The collapse in run a needs the prediction loss (LAM = 1, ENT = 0). A plausible mechanism, not tested:
+  with the prediction loss on, p stays near calibrated, so pushing barely raises P(0) and the effort gradient is weak.
+- **Predictions, checked.** Right: c tracks and beats b (1.48 vs my guess of ~1.43). Wrong: the read-out R² did
+  not fall in c (.955 vs .948), and d did not collapse. The forecasts for the uncontrolled streams did drift,
+  most of all in d (P(0) .061 against an untouched .334), yet the belief stays readable (R² .923).
+- All runs are a single seed.
+
+## How run c tests which stream it controls (2026-11-17)
+
+Scripts are in `probe/`. Run them from this folder with the group-belief venv. `choice_rules.py c` replays the exact oracle over
+`roll_c.npz` (4000 episodes, from `analyze.py c`). `price_rules.py` and `price_info.py` price the
+decision rules with the exact oracle, 40k episodes × 2 seeds, p = δ0 and one-hot effort.
+
+**What the network outputs.** On the stream it pushes, p(0) ≈ 1.000 (even the 1st percentile is
+1.000). It never pushes a less likely token to sharpen the test. Effort is one-hot (wmax ≈ .99). So the
+only signal it designs is *which stream to push*. Each push is then a hit/miss test: a miss
+multiplies the odds on that stream by about 0.2, and a hit multiplies them by (0.8 + 0.2 fA)/fI.
+
+**The choice rule.** Agreement of the net's pushed stream with rules computed from the oracle:
+
+| rule | all t ≥ 1 | t = 1–4 | t ≥ 16 |
+|---|---|---|---|
+| MAP (highest belief) | .950 | .889 | .976 |
+| proxy: highest P(pushed stream shows 0) | .952 | .896 | .977 |
+| reward-greedy: post·(1 − fA) | .940 | .830 | .975 |
+| info-greedy (expected information gain) | .847 | .705 | .892 |
+
+- After a miss, the network stays on the same stream 95% of the time if the oracle's top stream
+  is unchanged, and 19% of the time if it has changed.
+- When the rules disagree, the proxy rule wins. Against reward-greedy, the network sides with the proxy in 65% of
+  cases and with greedy in 20%.
+- **The clean tie test.** At t = 0 the network always pushes z. If that misses, x and y are exactly tied in
+  belief (gap ~1e-5). The network then picks x only if x showed 0 at t = 0 and y did not, and otherwise picks y. It
+  prefers the stream with the *higher* natural P(0). Reward-greedy and info-greedy both prefer the lower one.
+  Across all switches with near-tied alternatives, it goes to the lower natural P(0) only 39% of the time.
+
+**Why that is not punished: the game has no exploration/exploitation tension.**
+
+| rule (exact oracle, p = δ0) | reward/step |
+|---|---|
+| informed | 1.547 |
+| reward-greedy | 1.493 |
+| MAP | 1.492 |
+| proxy | 1.491 |
+| info-greedy for 4 / 8 / 32 steps, then MAP | 1.491 / 1.490 / 1.488 |
+| run c (network) | 1.481 |
+
+Pushing the most likely stream with token 0 is the reward action and the test at once. Seeking
+information buys nothing; it costs slightly. The tie-breaks differ by 0.002/step, so RL has no
+pressure to learn which one is right. The network is a near-exact Bayesian MAP agent whose test is
+its exploitation. It does not design its outputs for signal, because this game never pays for that.
+
+**To make signal design visible, the game needs a gap between the informative action and the
+rewarding one.** Candidate designs (not built):
+- reward a token that the streams emit often on their own, so that pushing it is uninformative;
+- make effort costly, so that probing has a price;
+- add a zero-reward probe action whose effect is easy to detect.

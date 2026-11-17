@@ -1,0 +1,26 @@
+run c: agreement of the net's pushed stream with each rule
+  MAP (argmax belief)          all t>=1 0.950   t=1..4 0.889   t>=16 0.976
+  reward-greedy  post*(1-fA)   all t>=1 0.940   t=1..4 0.830   t>=16 0.975
+  info-greedy (EIG)            all t>=1 0.847   t=1..4 0.705   t>=16 0.892
+  highest natural P(0)         all t>=1 0.837   t=1..4 0.661   t>=16 0.876
+  lowest natural P(0)          all t>=1 0.039   t=1..4 0.093   t>=16 0.025
+
+after a miss on z at t=0 (1949 episodes): net leaves z in 1.000
+  belief gap |b_x - b_y| at t=1: median 1.04e-05
+  picks the stream with LOWER natural P(0): 0.472   (reward- and info-greedy both say lower)
+  share picking x: 0.208
+    P0_x - P0_y in [-0.1,+0.0): P(pick x) = 0.00  (n=623)
+    P0_x - P0_y in [+0.0,+0.1): P(pick x) = 0.31  (n=1326)
+  P(pick x) by tokens (x_x, x_y) seen at t=0:
+    0.00 1.00 1.00
+    0.00 0.00 0.00
+    0.00 0.00 0.00
+
+all switches (8861): goes to the higher-belief alternative 0.669
+  when the two alternatives are within .05 in belief (n=3748): goes to lower natural P(0) 0.393
+
+after a miss: stays 0.623; when the oracle MAP is still the same stream it stays 0.950 (n=13085), otherwise 0.187 (n=9799)
+
+proxy rule argmax P(pushed stream shows 0): all t>=1 0.952   t=1..4 0.896   t>=16 0.977
+  where MAP and proxy disagree (n=1433): net = MAP 0.291, net = proxy 0.532
+  where reward-greedy and proxy disagree (n=3452): net = greedy 0.204, net = proxy 0.654
